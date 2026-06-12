@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<title>Contact Us | Visvesvaraya Institute of Technology & Science</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#0b1f3a;
+    --navy2:#162d52;
+    --gold:#c9a84c;
+    --gold2:#e8c76e;
+    --cream:#f7f3ec;
+    --white:#ffffff;
+    --text:#1d2431;
+    --muted:#697487;
+    --border:#ddd4c0;
+
+    --font-serif:'Playfair Display', serif;
+    --font-sans:'DM Sans', sans-serif;
+    --font-mono:'DM Mono', monospace;
+}
+
+body{
+    font-family:var(--font-sans);
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 2rem;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(11,31,58,0.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.header-inner{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.logo-circle{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-family:var(--font-serif);
+    font-weight:800;
+    font-size:1.4rem;
+}
+
+.logo-text h2{
+    color:white;
+    font-size:1rem;
+    line-height:1.3;
+    font-family:var(--font-serif);
+}
+
+.logo-text span{
+    color:var(--gold);
+    font-family:var(--font-mono);
+    letter-spacing:0.15em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:1.3rem;
+}
+
+nav ul li a{
+    color:rgba(255,255,255,0.72);
+    text-transform:uppercase;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    position:relative;
+    transition:0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color:var(--gold2);
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:0.3s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    min-height:72vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to right,
+    rgba(11,31,58,0.96),
+    rgba(11,31,58,0.82),
+    rgba(11,31,58,0.40)),
+    url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&q=80');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:4px 12px;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-family:var(--font-mono);
+    margin-bottom:1.5rem;
+}
+
+.hero-content h1{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:clamp(3rem,5vw,5rem);
+    line-height:1.08;
+    margin-bottom:1.5rem;
+}
+
+.hero-content h1 em{
+    color:var(--gold2);
+    font-style:italic;
+}
+
+.hero-content p{
+    color:rgba(255,255,255,0.72);
+    line-height:1.9;
+    max-width:620px;
+    font-size:1rem;
+}
+
+/* SECTION */
+
+section{
+    padding:6rem 0;
+}
+
+.section-header{
+    margin-bottom:3rem;
+}
+
+.section-title{
+    font-family:var(--font-serif);
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.15;
+    color:var(--navy);
+}
+
+.section-title em{
+    color:#9b2335;
+    font-style:italic;
+}
+
+/* CONTACT GRID */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:start;
+}
+
+/* CONTACT INFO */
+
+.info-card{
+    background:white;
+    border:1px solid var(--border);
+    padding:2rem;
+    margin-bottom:1.5rem;
+    transition:0.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 14px 30px rgba(0,0,0,0.06);
+}
+
+.info-icon{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.info-card h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.8rem;
+}
+
+.info-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:0.92rem;
+}
+
+/* FORM */
+
+.form-card{
+    background:white;
+    border:1px solid var(--border);
+    padding:3rem;
+}
+
+.form-group{
+    margin-bottom:1.5rem;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:0.6rem;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--navy);
+    font-family:var(--font-mono);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:1rem;
+    border:1px solid var(--border);
+    outline:none;
+    font-family:var(--font-sans);
+    background:var(--cream);
+}
+
+.form-group textarea{
+    resize:none;
+    height:160px;
+}
+
+.submit-btn{
+    width:100%;
+    background:var(--navy);
+    color:white;
+    border:none;
+    padding:1rem;
+    cursor:pointer;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.submit-btn:hover{
+    background:var(--navy2);
+}
+
+/* MAP SECTION */
+
+.map-section{
+    background:var(--navy);
+}
+
+.map-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:center;
+}
+
+.map-content h2{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:3rem;
+    margin-bottom:1.5rem;
+    line-height:1.2;
+}
+
+.map-content h2 em{
+    color:var(--gold2);
+    font-style:italic;
+}
+
+.map-content p{
+    color:rgba(255,255,255,0.7);
+    line-height:1.9;
+    margin-bottom:1.2rem;
+}
+
+.map-list{
+    margin-top:2rem;
+}
+
+.map-list li{
+    list-style:none;
+    color:white;
+    padding:0.8rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    gap:1rem;
+    align-items:center;
+}
+
+.map-list li::before{
+    content:'';
+    width:18px;
+    height:2px;
+    background:var(--gold);
+}
+
+.map-box{
+    overflow:hidden;
+    border:6px solid rgba(255,255,255,0.08);
+}
+
+.map-box iframe{
+    width:100%;
+    height:450px;
+    border:none;
+}
+
+/* DEPARTMENTS */
+
+.departments{
+    background:white;
+}
+
+.department-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+}
+
+.department-card{
+    background:var(--cream);
+    border:1px solid var(--border);
+    padding:2rem;
+    transition:0.3s;
+}
+
+.department-card:hover{
+    background:var(--navy);
+    transform:translateY(-6px);
+}
+
+.department-card:hover h3,
+.department-card:hover p{
+    color:white;
+}
+
+.department-icon{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.department-card h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.8rem;
+}
+
+.department-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:0.9rem;
+}
+
+/* CTA */
+
+.cta{
+    position:relative;
+}
+
+.cta-box{
+    background:var(--navy);
+    padding:5rem;
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.cta-box::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(201,168,76,0.18),
+    transparent 30%);
+}
+
+.cta-box h2{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:3rem;
+    margin-bottom:1rem;
+    position:relative;
+    z-index:2;
+}
+
+.cta-box p{
+    color:rgba(255,255,255,0.7);
+    line-height:1.9;
+    max-width:720px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:2rem;
+    background:var(--gold);
+    color:var(--navy);
+    padding:1rem 2.4rem;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+/* FOOTER */
+
+footer{
+    background:#06111f;
+    padding:4rem 0 2rem;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:2rem;
+    padding-top:1.5rem;
+    text-align:center;
+    color:rgba(255,255,255,0.42);
+    font-size:0.82rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .contact-grid,
+    .map-grid,
+    .department-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+    }
+}
+
+</style>
+<link rel="stylesheet" href="common.css?v=20260604-4">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+<header>
+
+    <div class="container header-inner">
+
+        <div class="logo">
+
+            <div class="logo-circle">V</div>
+
+            <!-- <div class="logo-text">
+                <h2>Visvesvaraya Institute of<br>Technology & Science</h2>
+                <span>Est. 1962</span>
+            </div> -->
+
+        </div>
+
+        <nav>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="campus.html">Campus</a></li>
+                <li><a class="active" href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="tag">Get In Touch</span>
+
+            <h1>
+                Connect With
+                <em>Us</em>
+            </h1>
+
+            <p>
+                Reach out to our admissions office, academic departments, or support teams for information regarding programmes, campus visits, research collaborations, and student services.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="tag">Contact Information</span>
+
+            <h2 class="section-title">
+                We're Here to
+                <em>Help You</em>
+            </h2>
+
+        </div>
+
+        <div class="contact-grid">
+
+            <div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">📍</div>
+
+                    <h3>Campus Address</h3>
+
+                    <p>
+                        Dreams Group of Colleges<br>
+                        Janta Road, Saharanpur<br>
+                        Uttar Pradesh, India
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">📞</div>
+
+                    <h3>Phone & Helpline</h3>
+
+                    <p>
+                        Main Office: +91-712-254-8900<br>
+                        Admissions: +91-712-254-8912<br>
+                        Student Support: +91-712-254-8945
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <div class="info-icon">✉️</div>
+
+                    <h3>Email Communication</h3>
+
+                    <p>
+                        info@dreams.ac.in<br>
+                        admissions@dreams.ac.in<br>
+                        research@dreams.ac.in
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="form-card">
+
+                <form>
+
+                    <div class="form-group">
+
+                        <label>Full Name</label>
+
+                        <input type="text" placeholder="Enter your full name">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Email Address</label>
+
+                        <input type="email" placeholder="Enter your email">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Phone Number</label>
+
+                        <input type="text" placeholder="Enter your phone number">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Department</label>
+
+                        <select>
+
+                            <option>Admissions Office</option>
+                            <option>Academics</option>
+                            <option>Research Department</option>
+                            <option>Student Support</option>
+                            <option>Campus Administration</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Your Message</label>
+
+                        <textarea placeholder="Write your message"></textarea>
+
+                    </div>
+
+                    <button class="submit-btn">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="map-section">
+
+    <div class="container">
+
+        <div class="map-grid">
+
+            <div class="map-content">
+
+                <span class="tag">Visit Our Campus</span>
+
+                <h2>
+                    Located in the Heart of
+                    <em>Saharanpur</em>
+                </h2>
+
+                <p>
+                    We provides world-class academic infrastructure, modern student amenities, research facilities, and a vibrant learning environment.
+                </p>
+
+                <p>
+                    <!-- Easily accessible through road, rail, and airport connectivity, VITS welcomes students, researchers, and visitors from across India and around the world. -->
+                </p>
+
+                <ul class="map-list">
+
+                    <li>20 Minutes from Nagpur Railway Station</li>
+
+                    <li>30 Minutes from Dr. Babasaheb Ambedkar Airport</li>
+
+                    <li>Direct Access to City Transport Services</li>
+
+                    <li>Secure Residential Campus Environment</li>
+
+                </ul>
+
+            </div>
+
+            <div class="map-box">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.171464598329!2d77.5890147!3d30.003232599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ec02f467f6fe7%3A0xe179f670081f98ec!2sDreams%20(%20Dwarikadhish%20Research%20%2C%20Education%20And%20Management%20School%20)%20Group%20of%20Colleges%20-%20Best%20College%20In%20Saharanpur!5e0!3m2!1sen!2sin!4v1781275649963!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="departments">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="tag">Department Contacts</span>
+
+            <h2 class="section-title">
+                Reach Specific
+                <em>Offices</em>
+            </h2>
+
+        </div>
+
+        <div class="department-grid">
+
+            <div class="department-card">
+
+                <div class="department-icon">🎓</div>
+
+                <h3>Admissions Office</h3>
+
+                <p>
+                    Programme inquiries, applications, scholarships, and enrollment guidance.
+                </p>
+
+            </div>
+
+            <div class="department-card">
+
+                <div class="department-icon">📚</div>
+
+                <h3>Academic Affairs</h3>
+
+                <p>
+                    Curriculum details, examinations, departments, and academic support services.
+                </p>
+
+            </div>
+
+            <div class="department-card">
+
+                <div class="department-icon">🔬</div>
+
+                <h3>Research Cell</h3>
+
+                <p>
+                    Research collaborations, innovation projects, publications, and partnerships.
+                </p>
+
+            </div>
+
+            <div class="department-card">
+
+                <div class="department-icon">🏨</div>
+
+                <h3>Student Services</h3>
+
+                <p>
+                    Hostel support, campus facilities, transport, wellness, and student activities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>Let's Build Your Future Together</h2>
+
+            <p>
+                Whether you're exploring admissions, research opportunities, campus visits, or partnerships — our team is ready to assist you at every step.
+            </p>
+
+            <a href="admissions.html" class="cta-btn">
+                Schedule a Visit
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-bottom">
+            © 2026 Visvesvaraya Institute of Technology & Science. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="common.js?v=20260604-4"></script>
+</body>
+</html>

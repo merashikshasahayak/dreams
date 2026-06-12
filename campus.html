@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<title>Campus Life | Visvesvaraya Institute of Technology & Science</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#0b1f3a;
+    --navy2:#162d52;
+    --gold:#c9a84c;
+    --gold2:#e8c76e;
+    --cream:#f7f3ec;
+    --white:#ffffff;
+    --text:#1d2431;
+    --muted:#687486;
+    --border:#ddd4c0;
+
+    --font-serif:'Playfair Display', serif;
+    --font-sans:'DM Sans', sans-serif;
+    --font-mono:'DM Mono', monospace;
+}
+
+body{
+    font-family:var(--font-sans);
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 2rem;
+}
+
+a{
+    text-decoration:none;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(11,31,58,0.96);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.header-inner{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.logo-circle{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-family:var(--font-serif);
+    font-weight:800;
+    font-size:1.4rem;
+}
+
+.logo-text h2{
+    color:white;
+    font-size:1rem;
+    line-height:1.3;
+    font-family:var(--font-serif);
+}
+
+.logo-text span{
+    color:var(--gold);
+    font-family:var(--font-mono);
+    letter-spacing:0.15em;
+    font-size:0.7rem;
+    text-transform:uppercase;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:1.3rem;
+}
+
+nav ul li a{
+    color:rgba(255,255,255,0.72);
+    text-transform:uppercase;
+    font-size:0.78rem;
+    letter-spacing:0.08em;
+    position:relative;
+    transition:0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color:var(--gold2);
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:0.3s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.hero{
+    min-height:80vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to right,
+    rgba(11,31,58,0.96),
+    rgba(11,31,58,0.82),
+    rgba(11,31,58,0.38)),
+    url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80');
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid var(--gold);
+    color:var(--gold);
+    padding:4px 12px;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-family:var(--font-mono);
+    margin-bottom:1.5rem;
+}
+
+.hero-content h1{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:clamp(3rem,5vw,5rem);
+    line-height:1.08;
+    margin-bottom:1.5rem;
+}
+
+.hero-content h1 em{
+    color:var(--gold2);
+    font-style:italic;
+}
+
+.hero-content p{
+    color:rgba(255,255,255,0.72);
+    line-height:1.9;
+    max-width:650px;
+    font-size:1rem;
+}
+
+.hero-buttons{
+    margin-top:2rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:var(--navy);
+    padding:1rem 2rem;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    font-weight:700;
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.3);
+    color:white;
+    padding:1rem 2rem;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+}
+
+/* SECTION */
+
+section{
+    padding:6rem 0;
+}
+
+.section-header{
+    margin-bottom:3rem;
+}
+
+.section-title{
+    font-family:var(--font-serif);
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.15;
+    color:var(--navy);
+}
+
+.section-title em{
+    color:#9b2335;
+    font-style:italic;
+}
+
+/* CAMPUS GRID */
+
+.campus-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+}
+
+.campus-card{
+    position:relative;
+    overflow:hidden;
+    height:460px;
+}
+
+.campus-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.campus-card:hover img{
+    transform:scale(1.08);
+}
+
+.campus-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+    rgba(11,31,58,0.92),
+    rgba(11,31,58,0.15));
+    display:flex;
+    align-items:flex-end;
+    padding:2rem;
+}
+
+.campus-overlay h3{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:2rem;
+    margin-bottom:0.8rem;
+}
+
+.campus-overlay p{
+    color:rgba(255,255,255,0.7);
+    line-height:1.8;
+}
+
+/* EXPERIENCE */
+
+.experience{
+    background:var(--navy);
+}
+
+.experience-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:center;
+}
+
+.experience-image img{
+    height:560px;
+    object-fit:cover;
+}
+
+.experience-content h2{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:3rem;
+    margin-bottom:1.5rem;
+    line-height:1.2;
+}
+
+.experience-content h2 em{
+    color:var(--gold2);
+    font-style:italic;
+}
+
+.experience-content p{
+    color:rgba(255,255,255,0.7);
+    line-height:1.9;
+    margin-bottom:1.2rem;
+}
+
+.experience-list{
+    margin-top:2rem;
+}
+
+.experience-list li{
+    list-style:none;
+    color:white;
+    padding:0.8rem 0;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    gap:1rem;
+    align-items:center;
+}
+
+.experience-list li::before{
+    content:'';
+    width:18px;
+    height:2px;
+    background:var(--gold);
+}
+
+/* FACILITIES */
+
+.facilities{
+    background:white;
+}
+
+.facility-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+}
+
+.facility-card{
+    background:var(--cream);
+    border:1px solid var(--border);
+    padding:2rem;
+    transition:0.3s;
+}
+
+.facility-card:hover{
+    background:var(--navy);
+    transform:translateY(-6px);
+}
+
+.facility-card:hover h3,
+.facility-card:hover p{
+    color:white;
+}
+
+.facility-icon{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.facility-card h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.7rem;
+}
+
+.facility-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:0.9rem;
+}
+
+/* STUDENT LIFE */
+
+.student-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+}
+
+.student-card{
+    position:relative;
+    overflow:hidden;
+    height:420px;
+}
+
+.student-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.student-card:hover img{
+    transform:scale(1.08);
+}
+
+.student-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,
+    rgba(11,31,58,0.92),
+    rgba(11,31,58,0.15));
+    display:flex;
+    align-items:flex-end;
+    padding:2rem;
+}
+
+.student-overlay h3{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:2rem;
+    margin-bottom:0.8rem;
+}
+
+.student-overlay p{
+    color:rgba(255,255,255,0.72);
+    line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2rem;
+}
+
+.stat-box{
+    text-align:center;
+}
+
+.stat-box h2{
+    color:var(--gold2);
+    font-family:var(--font-serif);
+    font-size:3rem;
+}
+
+.stat-box p{
+    margin-top:0.5rem;
+    color:rgba(255,255,255,0.6);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    font-family:var(--font-mono);
+}
+
+/* CTA */
+
+.cta{
+    position:relative;
+}
+
+.cta-box{
+    background:var(--navy);
+    padding:5rem;
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+}
+
+.cta-box::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(201,168,76,0.18),
+    transparent 30%);
+}
+
+.cta-box h2{
+    color:white;
+    font-family:var(--font-serif);
+    font-size:3rem;
+    margin-bottom:1rem;
+    position:relative;
+    z-index:2;
+}
+
+.cta-box p{
+    color:rgba(255,255,255,0.7);
+    line-height:1.9;
+    max-width:700px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:2rem;
+    background:var(--gold);
+    color:var(--navy);
+    padding:1rem 2.4rem;
+    text-transform:uppercase;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    font-weight:700;
+    position:relative;
+    z-index:2;
+}
+
+/* FOOTER */
+
+footer{
+    background:#06111f;
+    padding:4rem 0 2rem;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin-top:2rem;
+    padding-top:1.5rem;
+    text-align:center;
+    color:rgba(255,255,255,0.42);
+    font-size:0.82rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .campus-grid,
+    .facility-grid,
+    .student-grid,
+    .stats-grid,
+    .experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+    }
+}
+
+</style>
+<link rel="stylesheet" href="common.css?v=20260604-4">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+<header>
+
+    <div class="container header-inner">
+
+        <div class="logo">
+
+            <div class="logo-circle">V</div>
+
+            <div class="logo-text">
+                <h2>Visvesvaraya Institute of<br>Technology & Science</h2>
+                <span>Est. 1962</span>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a class="active" href="campus.html">Campus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="tag">Campus Life</span>
+
+            <h1>
+                A Campus Designed for
+                <em>Learning & Living</em>
+            </h1>
+
+            <p>
+                Experience a vibrant residential campus where academics, innovation, culture, sports, and student life come together to create a transformative educational journey.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="campus.html" class="btn-primary">
+                    Explore Campus
+                </a>
+
+                <a href="contact.html" class="btn-outline">
+                    Virtual Tour
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="tag">Campus Infrastructure</span>
+
+            <h2 class="section-title">
+                Built for
+                <em>Excellence</em>
+            </h2>
+
+        </div>
+
+        <div class="campus-grid">
+
+            <div class="campus-card">
+
+                <img src="assets/building1.JPG">
+
+                <div class="campus-overlay">
+
+                    <div>
+                        <h3>Academic Blocks</h3>
+
+                        <p>
+                            Smart classrooms, modern lecture halls, and technology-enabled learning spaces.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="campus-card">
+
+                <img src="assets/library.JPG">
+
+                <div class="campus-overlay">
+
+                    <div>
+                        <h3>Central Library</h3>
+
+                        <p>
+                            Digital learning resources, research journals, and 24×7 academic access facilities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="campus-card">
+
+                <img src="assets/multipuposeHall.jpg">
+
+                <div class="campus-overlay">
+
+                    <div>
+                        <h3>Convention Centre</h3>
+
+                        <p>
+                            International conferences, seminars, technical festivals, and cultural programmes.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="experience">
+
+    <div class="container">
+
+        <div class="experience-grid">
+
+            <div class="experience-image">
+
+                <img src="assets/frontview.jpg" style="border-radius:8px; border:10px solid rgb(165, 141, 5);">
+
+            </div>
+
+            <div class="experience-content">
+
+                <span class="tag">Student Experience</span>
+
+                <h2>
+                    Beyond the
+                    <em>Classroom</em>
+                </h2>
+
+                <p>
+                    Dreams college encourages holistic development through student clubs, innovation communities, sports activities, leadership programmes, cultural events, and entrepreneurship initiatives.
+                </p>
+
+                <p>
+                    Our campus culture promotes creativity, collaboration, diversity, and lifelong friendships while preparing students for global opportunities.
+                </p>
+
+                <ul class="experience-list">
+
+                    <li>50+ Student Clubs & Technical Societies</li>
+
+                    <li>Annual Tech & Cultural Festivals</li>
+
+                    <li>Innovation & Startup Incubation Cell</li>
+
+                    <li>Leadership & Personality Development</li>
+
+                    <li>Sports, Fitness & Wellness Facilities</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- <section class="facilities">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="tag">Facilities</span>
+
+            <h2 class="section-title">
+                World-Class
+                <em>Campus Amenities</em>
+            </h2>
+
+        </div>
+
+        <div class="facility-grid">
+
+            <div class="facility-card">
+
+                <div class="facility-icon">🏨</div>
+
+                <h3>Residential Hostels</h3>
+
+                <p>
+                    Comfortable residential accommodation with modern amenities and secure campus living.
+                </p>
+
+            </div>
+
+            <div class="facility-card">
+
+                <div class="facility-icon">⚽</div>
+
+                <h3>Sports Complex</h3>
+
+                <p>
+                    Indoor courts, football grounds, fitness centres, swimming pool, and athletic facilities.
+                </p>
+
+            </div>
+
+            <div class="facility-card">
+
+                <div class="facility-icon">☕</div>
+
+                <h3>Food Courts</h3>
+
+                <p>
+                    Hygienic dining spaces, cafés, and multi-cuisine food courts across campus.
+                </p>
+
+            </div>
+
+            <div class="facility-card">
+
+                <div class="facility-icon">🚌</div>
+
+                <h3>Transport Services</h3>
+
+                <p>
+                    Safe and efficient transportation network connecting major city routes and nearby towns.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="tag">Campus Culture</span>
+
+            <h2 class="section-title">
+                Vibrant Student
+                <em>Life</em>
+            </h2>
+
+        </div>
+
+        <div class="student-grid">
+
+            <div class="student-card">
+
+                <img src="assets/IMG_9251.JPG">
+
+                <div class="student-overlay">
+
+                    <div>
+                        <h3>Cultural Festivals</h3>
+
+                        <p>
+                            Music, arts, performances, creativity, and celebrations that bring campus alive.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="student-card">
+
+                <img src="assets/DSC_0315.JPG">
+
+                <div class="student-overlay">
+
+                    <div>
+                        <h3>Innovation Communities</h3>
+
+                        <p>
+                            Hackathons, startup events, technical workshops, and collaborative innovation spaces.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+                <h2>80%</h2>
+                <p>Placement Rate</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>1200+</h2>
+                <p>Students</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>50+</h2>
+                <p>Faculty Members</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>14+</h2>
+                <p>Years of Excellence</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>Experience Life at Dreams</h2>
+
+            <p>
+                Discover a campus where academic excellence, innovation, community, and student experiences come together to shape the leaders of tomorrow.
+            </p>
+
+            <a href="contact.html" class="cta-btn">
+                Schedule a Campus Visit
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-bottom">
+            © 2026 Visvesvaraya Institute of Technology & Science. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="common.js?v=20260604-4"></script>
+</body>
+</html>

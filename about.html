@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<title>About Us | Visvesvaraya Institute of Technology & Science</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#0b1f3a;
+    --navy2:#162d52;
+    --gold:#c9a84c;
+    --gold2:#e8c76e;
+    --cream:#f7f3ec;
+    --white:#ffffff;
+    --text:#1d2430;
+    --muted:#626c7d;
+    --border:#ddd3bb;
+
+    --font-serif:'Playfair Display', serif;
+    --font-sans:'DM Sans', sans-serif;
+    --font-mono:'DM Mono', monospace;
+}
+
+body{
+    font-family:var(--font-sans);
+    background:var(--cream);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 2rem;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(11,31,58,0.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.header-inner{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+}
+
+.logo-circle{
+    width:56px;
+    height:56px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+    font-family:var(--font-serif);
+    font-size:1.3rem;
+    font-weight:800;
+}
+
+.logo-text h2{
+    color:white;
+    font-size:1rem;
+    line-height:1.3;
+    font-family:var(--font-serif);
+}
+
+.logo-text span{
+    color:var(--gold);
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    font-family:var(--font-mono);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:1.2rem;
+}
+
+nav ul li a{
+    color:rgba(255,255,255,0.75);
+    font-size:0.82rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    transition:0.3s;
+    position:relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color:var(--gold2);
+}
+
+nav ul li a::after{
+    content:'';
+    position:absolute;
+    bottom:-6px;
+    left:0;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:0.3s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+/* HERO */
+
+.about-hero{
+    min-height:72vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.about-hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to right,
+    rgba(11,31,58,0.95),
+    rgba(11,31,58,0.78),
+    rgba(11,31,58,0.45)),
+    url('assets/frontview.jpg');
+    background-size:cover;
+    background-position:center;
+    filter:brightness(0.75);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:760px;
+}
+
+.tag{
+    display:inline-block;
+    color:var(--gold);
+    border:1px solid var(--gold);
+    padding:4px 12px;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-family:var(--font-mono);
+    margin-bottom:1.6rem;
+}
+
+.hero-content h1{
+    font-family:var(--font-serif);
+    font-size:clamp(3rem,5vw,5rem);
+    line-height:1.1;
+    color:white;
+    margin-bottom:1.4rem;
+}
+
+.hero-content h1 em{
+    color:var(--gold2);
+    font-style:italic;
+}
+
+.hero-content p{
+    color:rgba(255,255,255,0.72);
+    line-height:1.9;
+    max-width:620px;
+    font-size:1rem;
+}
+
+/* SECTION */
+
+section{
+    padding:6rem 0;
+}
+
+.section-header{
+    margin-bottom:3rem;
+}
+
+.section-title{
+    font-family:var(--font-serif);
+    font-size:clamp(2rem,4vw,3rem);
+    line-height:1.15;
+    color:var(--navy);
+}
+
+.section-title em{
+    color:#9b2335;
+    font-style:italic;
+}
+
+/* STORY */
+
+.story-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4rem;
+    align-items:center;
+}
+
+.story-image{
+    position:relative;
+}
+
+.story-image img{
+    height:420px;
+    object-fit:cover;
+    border:6px solid white;
+    outline:1px solid var(--border);
+}
+
+.story-image::before{
+    content:'';
+    position:absolute;
+    top:-20px;
+    left:-20px;
+    width:80%;
+    height:80%;
+    border:2px solid var(--gold);
+    z-index:-1;
+}
+
+.story-content p{
+    line-height:1.95;
+    color:var(--muted);
+    margin-bottom:1.4rem;
+}
+
+.story-box{
+    margin-top:2rem;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+}
+
+.story-card{
+    background:white;
+    padding:1.5rem;
+    border:1px solid var(--border);
+}
+
+.story-card h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.5rem;
+}
+
+.story-card p{
+    font-size:0.9rem;
+    margin:0;
+}
+
+/* VISION */
+
+.vision-section{
+    background:var(--navy);
+}
+
+.vision-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2rem;
+}
+
+.vision-card{
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:3rem;
+}
+
+.vision-card h2{
+    color:var(--gold2);
+    font-family:var(--font-serif);
+    margin-bottom:1rem;
+    font-size:2rem;
+}
+
+.vision-card p{
+    color:rgba(255,255,255,0.72);
+    line-height:1.9;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    margin-top:4rem;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    width:2px;
+    height:100%;
+    background:var(--gold);
+}
+
+.timeline-item{
+    width:50%;
+    padding:2rem 3rem;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    position:absolute;
+    top:40px;
+    width:18px;
+    height:18px;
+    background:var(--gold);
+    border-radius:50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+    right:-10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-9px;
+}
+
+.timeline-content{
+    background:white;
+    border:1px solid var(--border);
+    padding:2rem;
+}
+
+.timeline-content h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.6rem;
+}
+
+.timeline-content span{
+    color:var(--gold);
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+}
+
+.timeline-content p{
+    margin-top:1rem;
+    line-height:1.8;
+    color:var(--muted);
+}
+
+/* LEADERSHIP */
+
+.leaders-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2rem;
+}
+
+.leader-card{
+    background:white;
+    border:1px solid var(--border);
+    overflow:hidden;
+    transition:0.35s;
+}
+
+.leader-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+.leader-card img{
+    height:380px;
+    width:100%;
+    object-fit:cover;
+}
+
+.leader-body{
+    padding:2rem;
+}
+
+.leader-body h3{
+    font-family:var(--font-serif);
+    color:var(--navy);
+    margin-bottom:0.3rem;
+}
+
+.leader-body span{
+    color:var(--gold);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-family:var(--font-mono);
+}
+
+.leader-body p{
+    margin-top:1rem;
+    line-height:1.8;
+    color:var(--muted);
+    font-size:0.92rem;
+}
+
+/* VALUES */
+
+.values-section{
+    background:white;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1.5rem;
+}
+
+.value-card{
+    border:1px solid var(--border);
+    padding:2rem;
+    background:var(--cream);
+    transition:0.3s;
+}
+
+.value-card:hover{
+    background:var(--navy);
+    transform:translateY(-6px);
+}
+
+.value-card:hover h3,
+.value-card:hover p{
+    color:white;
+}
+
+.value-icon{
+    font-size:2rem;
+    margin-bottom:1rem;
+}
+
+.value-card h3{
+    font-family:var(--font-serif);
+    margin-bottom:0.8rem;
+    color:var(--navy);
+}
+
+.value-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:0.92rem;
+}
+
+/* STATS */
+
+.stats-section{
+    background:linear-gradient(135deg,var(--navy),var(--navy2));
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2rem;
+}
+
+.stat-box{
+    text-align:center;
+}
+
+.stat-box h2{
+    font-family:var(--font-serif);
+    font-size:3rem;
+    color:var(--gold2);
+}
+
+.stat-box p{
+    margin-top:0.5rem;
+    color:rgba(255,255,255,0.55);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    font-family:var(--font-mono);
+}
+
+/* CTA */
+
+.cta-section{
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box{
+    background:var(--navy);
+    padding:5rem;
+    text-align:center;
+    position:relative;
+}
+
+.cta-box::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(201,168,76,0.15),
+    transparent 30%);
+}
+
+.cta-box h2{
+    position:relative;
+    z-index:2;
+    color:white;
+    font-family:var(--font-serif);
+    font-size:3rem;
+    margin-bottom:1rem;
+}
+
+.cta-box p{
+    position:relative;
+    z-index:2;
+    color:rgba(255,255,255,0.68);
+    line-height:1.9;
+    max-width:650px;
+    margin:auto;
+}
+
+.cta-btn{
+    position:relative;
+    z-index:2;
+    margin-top:2rem;
+    display:inline-block;
+    background:var(--gold);
+    color:var(--navy);
+    padding:1rem 2.2rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.8rem;
+    font-weight:700;
+}
+
+/* FOOTER */
+
+footer{
+    background:#06111f;
+    padding:4rem 0 2rem;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:1.5rem;
+    margin-top:2rem;
+    text-align:center;
+    color:rgba(255,255,255,0.45);
+    font-size:0.8rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .story-grid,
+    .vision-grid,
+    .leaders-grid,
+    .values-grid,
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .timeline::before{
+        left:20px;
+    }
+
+    .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding-left:4rem;
+        text-align:left !important;
+    }
+
+    .timeline-dot{
+        left:12px !important;
+    }
+
+    nav{
+        display:none;
+    }
+}
+
+</style>
+<link rel="stylesheet" href="common.css?v=20260604-4">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+
+        <!-- <div class="logo">
+            <div class="logo-circle">D</div>
+
+            <div class="logo-text">
+                <h2>Dreans Group of Colleges</h2>
+                <span>Est. 1962</span>
+            </div>
+        </div> -->
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="campus.html">Campus</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<section class="about-hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="tag">About the Institution</span>
+
+            <h1>
+                Building Futures Through
+                <em>Knowledge</em>
+                & Innovation
+            </h1>
+
+            <p>
+                Dreams College, also known as Dwarikadheesh Research, Education, and Management School, is a premier institution dedicated to providing quality education and fostering academic excellence. The college offers a wide range of programs in Pharmacy, Management, Computer Applications, Commerce, Arts, Science, Teacher Education, and Engineering.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+
+        <div class="story-grid">
+
+            <div class="story-image">
+                <img src="assets/building1.JPG">
+            </div>
+
+            <div class="story-content">
+
+                <div class="section-header">
+                    <span class="tag">Our Legacy</span>
+
+                    <h2 class="section-title">
+                        A Tradition of<em>Academic Excellence</em>
+                    </h2>
+                </div>
+
+                <p>
+                    Dreams College is a premier educational institution dedicated to fostering academic excellence, innovation, and holistic student development. With a strong commitment to quality education, the college provides an inspiring learning environment where students are encouraged to expand their knowledge, develop critical thinking skills, and achieve their full potential.
+                </p>
+
+                <p>
+                    As Dwarikadheesh Research, Education, and Management School, Dreams College combines experienced faculty, modern infrastructure, and industry-oriented learning opportunities to prepare students for the challenges of a competitive world. Through practical exposure, professional guidance, and a student-centric approach, we empower learners to build successful careers and emerge as confident, responsible, and future-ready professionals.
+                </p>
+
+                <div class="story-box">
+
+                    <div class="story-card">
+                        <h3>120 Acres</h3>
+                        <p>Modern residential campus with smart infrastructure.</p>
+                    </div>
+
+                    <div class="story-card">
+                        <h3>60+ MoUs</h3>
+                        <p>Global academic and industrial collaborations.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="vision-section">
+
+    <div class="container">
+
+        <div class="vision-grid">
+
+            <div class="vision-card">
+                <h2>Our Vision</h2>
+
+                <p>
+                    To be a center of excellence in higher education by fostering academic innovation, professional competence, ethical values, and lifelong learning, while empowering students to become responsible leaders and contributors to society.
+                </p>
+            </div>
+
+            <div class="vision-card">
+                <h2>Our Mission</h2>
+
+                <p>
+                    At Dreams College, our mission is to provide high-quality, accessible, and industry-oriented education that empowers students to achieve academic excellence and professional success. We are committed to fostering innovation, critical thinking, ethical values, and lifelong learning through a dynamic and supportive educational environment.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- <section>
+
+    <div class="container">
+
+        <div class="section-header">
+            <span class="tag">Institutional Journey</span>
+
+            <h2 class="section-title">
+                Milestones Through
+                <em>Time</em>
+            </h2>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <span>1962</span>
+                    <h3>Foundation of VITS</h3>
+                    <p>
+                        Institute established with core engineering disciplines and a vision of technological excellence.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <span>1988</span>
+                    <h3>Research Expansion</h3>
+                    <p>
+                        Dedicated laboratories and innovation centres established for advanced research.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <span>2006</span>
+                    <h3>International Collaborations</h3>
+                    <p>
+                        Strategic partnerships signed with international universities and industries.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-content">
+                    <span>2024</span>
+                    <h3>National Recognition</h3>
+                    <p>
+                        Ranked among India’s leading engineering institutions for innovation and placements.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<section class="values-section">
+
+    <div class="container">
+
+        <div class="section-header">
+            <span class="tag">Core Values</span>
+
+            <h2 class="section-title">
+                What Defines
+                <em>Us</em>
+            </h2>
+        </div>
+
+        <div class="values-grid">
+
+            <div class="value-card">
+                <div class="value-icon">🎓</div>
+                <h3>Academic Integrity</h3>
+                <p>
+                    Commitment to rigorous education, transparency, and ethical learning practices.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🔬</div>
+                <h3>Research & Innovation</h3>
+                <p>
+                    Encouraging scientific exploration and breakthrough technological advancements.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🌍</div>
+                <h3>Global Perspective</h3>
+                <p>
+                    Building international exposure and multicultural academic collaboration.
+                </p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Social Responsibility</h3>
+                <p>
+                    Creating leaders who contribute positively to society and nation-building.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- <section>
+
+    <div class="container">
+
+        <div class="section-header">
+            <span class="tag">Leadership</span>
+
+            <h2 class="section-title">
+                Guiding the Institution
+                with <em>Vision</em>
+            </h2>
+        </div>
+
+        <div class="leaders-grid">
+
+            <div class="leader-card">
+
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80">
+
+                <div class="leader-body">
+                    <h3>Dr. Rajiv Menon</h3>
+                    <span>Chairman</span>
+
+                    <p>
+                        Leading the institution with strategic vision focused on global competitiveness and academic transformation.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="leader-card">
+
+                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=700&q=80">
+
+                <div class="leader-body">
+                    <h3>Prof. Ananya Deshmukh</h3>
+                    <span>Director</span>
+
+                    <p>
+                        Driving innovation, research culture, and student-centric academic excellence.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="leader-card">
+
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=80">
+
+                <div class="leader-body">
+                    <h3>Dr. Vivek Sharma</h3>
+                    <span>Dean Academics</span>
+
+                    <p>
+                        Strengthening interdisciplinary learning and modern curriculum frameworks.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-box">
+                <h2>8,400+</h2>
+                <p>Students</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>240+</h2>
+                <p>Faculty</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>94%</h2>
+                <p>Placement Rate</p>
+            </div>
+
+            <div class="stat-box">
+                <h2>60+</h2>
+                <p>Global Partners</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>Become a Part of Our Legacy</h2>
+
+            <p>
+                Join an institution where innovation meets tradition, and where future leaders are shaped through knowledge, discipline, and vision.
+            </p>
+
+            <a href="admissions.html" class="cta-btn">
+                Explore Admissions
+            </a>
+
+        </div>
+
+    </div>
+
+</section> -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-bottom">
+            © 2026 Visvesvaraya Institute of Technology & Science. All Rights Reserved.
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="common.js?v=20260604-4"></script>
+</body>
+</html>
