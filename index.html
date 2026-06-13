@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Dreams Group of colleges, Saharanpur</title>
+  <title>Visvesvaraya Institute of Technology & Science</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -204,6 +204,7 @@
       z-index: 2;
     }
 
+    /* diagonal clip on the right edge */
     .hero-left::after {
       content: '';
       position: absolute;
@@ -225,7 +226,10 @@
       margin-bottom: 1.4rem;
     }
 
-    .hero-title em { font-style: italic; color: var(--gold2); }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold2);
+    }
 
     .hero-subtitle {
       font-size: 1rem;
@@ -269,6 +273,7 @@
     }
     .hero-btn-secondary:hover { border-color: var(--gold); color: var(--gold2); }
 
+    /* floating stats inside hero-left */
     .hero-stats {
       display: flex;
       gap: 2.5rem;
@@ -291,7 +296,10 @@
       margin-top: 4px;
     }
 
-    .hero-right { position: relative; overflow: hidden; }
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
 
     .hero-right img {
       width: 100%;
@@ -303,7 +311,10 @@
     }
     .hero-right:hover img { transform: scale(1.04); }
 
-    .hero-right::before { display: none; }
+    /* overlay lines */
+    .hero-right::before {
+      display: none;
+    }
 
     .hero-badge {
       position: absolute;
@@ -356,7 +367,9 @@
     /* ─── SECTION BASE ─── */
     section { padding: 5rem 0; }
 
-    .section-header { margin-bottom: 3rem; }
+    .section-header {
+      margin-bottom: 3rem;
+    }
     .section-header .tag { margin-bottom: 0.8rem; }
     .section-title {
       font-family: var(--font-serif);
@@ -377,7 +390,9 @@
       align-items: center;
     }
 
-    .about-image-wrap { position: relative; }
+    .about-image-wrap {
+      position: relative;
+    }
     .about-image-wrap img {
       width: 100%;
       height: 480px;
@@ -488,7 +503,10 @@
     .program-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(11,31,58,0.12); }
     .program-card:hover::after { transform: scaleX(1); }
 
-    .program-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .program-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
     .program-card h3 {
       font-family: var(--font-serif);
       font-size: 1.2rem;
@@ -511,7 +529,10 @@
     }
 
     /* ─── STATS BAR ─── */
-    .stats-bar { background: var(--navy); padding: 4rem 0; }
+    .stats-bar {
+      background: var(--navy);
+      padding: 4rem 0;
+    }
     .stats-inner {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -769,7 +790,10 @@
       letter-spacing: 0.05em;
       color: rgba(255,255,255,0.28);
     }
-    .footer-accred { display: flex; gap: 1.5rem; }
+    .footer-accred {
+      display: flex;
+      gap: 1.5rem;
+    }
     .accred-badge {
       font-size: 0.65rem;
       letter-spacing: 0.1em;
@@ -786,7 +810,9 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-left > * { animation: fadeUp 0.7s ease both; }
+    .hero-left > * {
+      animation: fadeUp 0.7s ease both;
+    }
     .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
     .hero-left > *:nth-child(2) { animation-delay: 0.22s; }
     .hero-left > *:nth-child(3) { animation-delay: 0.34s; }
@@ -798,7 +824,8 @@
       .hero { grid-template-columns: 1fr; }
       .hero-right { height: 300px; }
       .hero-left::after { display: none; }
-      .about-grid, .news-grid { grid-template-columns: 1fr; }
+      .about-grid,
+      .news-grid { grid-template-columns: 1fr; }
       .programs-grid { grid-template-columns: 1fr 1fr; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -807,7 +834,8 @@
       nav { display: none; }
     }
     @media (max-width: 600px) {
-      .programs-grid, .facilities-grid { grid-template-columns: 1fr; }
+      .programs-grid,
+      .facilities-grid { grid-template-columns: 1fr; }
       .stats-inner { grid-template-columns: 1fr 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .hero-left { padding: 3rem 1.5rem; }
@@ -819,17 +847,9 @@
       transform: translateY(30px);
       transition: opacity 0.65s ease, transform 0.65s ease;
     }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* ─── IMAGE DEBUG: visible fallback when src is missing ─── */
-    img.img-fail {
-      outline: 3px solid var(--red) !important;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(155,35,53,0.08) 0 10px,
-        rgba(155,35,53,0.18) 10px 20px
-      );
-      min-height: 120px;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
   <link rel="stylesheet" href="common.css?v=20260604-4" />
@@ -837,20 +857,41 @@
 </head>
 <body>
 
-  <!-- TOPBAR (commented out, kept for reference) -->
+  <!-- TOPBAR
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📍 Nagpur, Maharashtra — 440001</span>
+        <span>📞 +91-712-254-8900</span>
+        <span>✉ admissions@vits.ac.in</span>
+      </div>
+      <div>
+        <a href="about.html">Alumni</a>
+        <a href="contact.html">E-Governance</a>
+        <a href="about.html">NIRF</a>
+        <a href="about.html">NAAC</a>
+      </div>
+    </div>
+  </div> -->
 
   <!-- HEADER -->
   <header>
     <div class="header-inner">
 
       <a href="index.html" class="logo-block">
+        <!-- SVG Emblem -->
         <svg class="logo-emblem" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
           <polygon points="29,4 54,16 54,42 29,54 4,42 4,16" fill="#162d52" stroke="#c9a84c" stroke-width="1.5"/>
           <polygon points="29,11 47,20 47,38 29,47 11,38 11,20" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.4"/>
           <text x="29" y="33" font-family="Georgia,serif" font-size="14" font-weight="900" fill="#c9a84c" text-anchor="middle">V</text>
           <text x="29" y="22" font-family="'DM Mono',monospace" font-size="5.5" fill="rgba(201,168,76,0.55)" text-anchor="middle" letter-spacing="1">ITS</text>
           <circle cx="29" cy="29" r="24.5" fill="none" stroke="#c9a84c" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.3"/>
-        </svg>
+        </svg> 
+
+        <!-- <div class="logo-text">
+          <div class="logo-name">Dreans Group of Colleges</div>
+          <div class="logo-est">Saharanpur &middot; Uttar Pradesh</div>
+        </div> -->
       </a>
 
       <nav aria-label="Primary navigation">
@@ -872,7 +913,7 @@
     </div>
   </header>
 
-  <div class="ticker-bar" role="marquee" aria-label="Latest announcements">
+    <div class="ticker-bar" role="marquee" aria-label="Latest announcements">
     <div class="ticker-track">
       <span class="ticker-item">🎓 Admissions Open 2026–27 — Pharmacy Programs, Management & Computer Applications, Commerce & Humanities, Teacher Education, Polutechnic & Engineering</span>
       <span class="ticker-sep">///</span>
@@ -900,6 +941,7 @@
     </div>
   </div>
 
+  
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
@@ -939,9 +981,8 @@
     </div>
 
     <div class="hero-right">
-      <img src="assets/building1.JPG" alt="Dreams College Campus"
-           loading="eager"
-           onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+      <!-- Replace src with actual campus photo -->
+      <img src="assets/building1.jpg" alt="Dreams College Campus" loading="eager" />
       <div class="hero-badge">
         <span class="hero-badge-num">A+</span>
         <div class="hero-badge-text">NAAC Grade</div>
@@ -949,14 +990,15 @@
     </div>
   </section>
 
+  <!-- TICKER -->
+
+
   <!-- ABOUT -->
   <section class="about-section reveal">
     <div class="container">
       <div class="about-grid">
         <div class="about-image-wrap">
-          <img src="assets/frontview.jpg" alt="VITS Main Building"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/frontview.jpg" alt="VITS Main Building" loading="lazy" />
           <div class="about-year-badge">
             <span>14</span>
             <small>Years of Excellence</small>
@@ -1046,6 +1088,30 @@
     </div>
   </section>
 
+  <!-- STATS BAR
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">8,400+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">240+</span>
+          <span class="stat-label">Faculty</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">60+</span>
+          <span class="stat-label">Industry Partners</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">₹48Cr</span>
+          <span class="stat-label">Research Grants</span>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
   <!-- NEWS -->
   <section class="news-section reveal">
     <div class="container">
@@ -1059,9 +1125,7 @@
 
       <div class="news-grid">
         <div class="news-featured">
-          <img src="assets/img_9251.jpg" alt="20th Grand Ceremony"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/IMG_9251.JPG" alt="Event" loading="lazy" />
           <div class="news-featured-body">
             <span class="tag">Event</span>
             <h2>20th Grand Ceremony of the College</h2>
@@ -1104,36 +1168,28 @@
       </div>
       <div class="facilities-grid">
         <div class="facility-card">
-          <img src="assets/library.jpg" alt="Central Library"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/library.JPG" alt="Central Library" loading="lazy" />
           <div class="facility-card-label">
             <h4>Central Library</h4>
             <p>1.2 Lakh volumes · 24×7 access</p>
           </div>
         </div>
         <div class="facility-card">
-          <img src="assets/sciencelab.jpg" alt="Research Laboratories"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/scienceLab.jpg" alt="Research Laboratories" loading="lazy" />
           <div class="facility-card-label">
             <h4>Research Laboratories</h4>
             <p>10+ specialised labs</p>
           </div>
         </div>
         <div class="facility-card">
-          <img src="assets/multipurposehall.jpg" alt="Convention Centre"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/multipuposeHall.jpg" alt="Auditorium" loading="lazy" />
           <div class="facility-card-label">
             <h4>Convention Centre</h4>
             <p>150-seat auditorium</p>
           </div>
         </div>
         <div class="facility-card">
-          <img src="assets/danceclass.jpg" alt="Indian Cultural Centre"
-               loading="lazy"
-               onerror="this.classList.add('img-fail'); this.alt='❌ Missing: '+this.getAttribute('src');" />
+          <img src="assets/danceclass.jpeg" alt="Sports Complex" loading="lazy" />
           <div class="facility-card-label">
             <h4>Indian Cultural Centre</h4>
             <p>Dance Class · Indoor courts</p>
@@ -1142,6 +1198,27 @@
       </div>
     </div>
   </section>
+
+  <!-- TESTIMONIAL
+  <section class="testimonial-section reveal">
+    <div class="container">
+      <div class="testimonial-inner">
+        <div style="margin-bottom:1.5rem;">
+          <span class="tag">Alumni Speak</span>
+        </div>
+        <blockquote>
+          "VITS didn't just teach me engineering — it taught me to think. The rigour of the programme and the quality of faculty here shaped my entire career at ISRO."
+        </blockquote>
+        <div class="testimonial-author">
+          <img class="testimonial-avatar" src="https://i.pravatar.cc/100?img=48" alt="Dr. Priya Nair" loading="lazy" />
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Dr. Priya Nair</div>
+            <div class="testimonial-role">Senior Scientist, ISRO · B.Tech CSE 2008</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!-- FOOTER -->
   <footer>
@@ -1206,7 +1283,7 @@
   </footer>
 
   <script>
-    // ── Scroll reveal ──
+    // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -1215,7 +1292,7 @@
     }, { threshold: 0.08 });
     reveals.forEach(el => io.observe(el));
 
-    // ── Animated counters ──
+    // Animated counters
     function animateCount(el, target, suffix) {
       let start = 0;
       const dur = 1800;
@@ -1226,6 +1303,7 @@
         if (start >= target) clearInterval(timer);
       }, 16);
     }
+
     const statNums = document.querySelectorAll('.stat-num');
     const statsIO = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -1239,48 +1317,6 @@
       });
     }, { threshold: 0.5 });
     statNums.forEach(el => statsIO.observe(el));
-
-    // ── IMAGE AUDIT ──
-    // Logs every <img> result to the console. If any are broken,
-    // a red box appears in the bottom-right corner listing them.
-    (function () {
-      const imgs = Array.from(document.images);
-      const log = (ok, src) => {
-        if (ok) console.log('✅ image OK :', src);
-        else    console.error('❌ image MISSING:', src);
-      };
-
-      imgs.forEach(img => {
-        const src = img.getAttribute('src') || '(no src)';
-        if (img.complete && img.naturalWidth > 0) {
-          log(true, src);
-        } else if (img.complete && img.naturalWidth === 0 && src) {
-          log(false, src);
-        } else {
-          img.addEventListener('load',  () => log(true,  src));
-          img.addEventListener('error', () => log(false, src));
-        }
-      });
-
-      window.addEventListener('load', () => {
-        const broken = imgs.filter(i => i.complete && i.naturalWidth === 0 && i.getAttribute('src'));
-        if (broken.length) {
-          const box = document.createElement('div');
-          box.style.cssText = [
-            'position:fixed', 'bottom:1rem', 'right:1rem', 'z-index:99999',
-            'background:#9b2335', 'color:#fff', 'padding:1rem 1.2rem',
-            "font:13px/1.5 'DM Mono',monospace", 'max-width:360px',
-            'border:2px solid #c9a84c', 'box-shadow:0 6px 24px rgba(0,0,0,.3)',
-            'border-radius:4px'
-          ].join(';');
-          box.innerHTML =
-            '<b style="display:block;margin-bottom:.4rem;">⚠ ' + broken.length + ' broken image(s):</b>' +
-            broken.map(i => '• ' + i.getAttribute('src')).join('<br>') +
-            '<div style="margin-top:.6rem;opacity:.7;font-size:11px;">check filename, case, and that file is in /assets/</div>';
-          document.body.appendChild(box);
-        }
-      });
-    })();
   </script>
   <script src="common.js?v=20260604-4"></script>
 </body>
