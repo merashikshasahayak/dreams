@@ -86,7 +86,7 @@
                         <span>Admissions Open</span>
                         <span>Saharanpur</span>
                         <span>Uttar Pradesh</span>
-                        <span>Powered by <a href="www.merashikshasahayak.com">MSS</a></span>
+                        <span>Powered by <a href="https://www.merashikshasahayak.com/">MSS</a></span>
                     </div>
                 </div>
             </div>
