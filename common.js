@@ -44,9 +44,11 @@
                 <div class="footer-grid">
                     <div class="site-footer-brand">
                         <div class="site-logo-name">Dreams Group of Colleges</div>
-                        <p>Dedicated to academic excellence, practical learning, and holistic student development.</p>
+                        <p>Affiliated to: Dr. APJ Abdul Kalam Technical University, Lucknow</p>
+                        <p>BET Lucknow</p>
+                        <p>Approved By: Pharmacy Council of India, New Delhi</p>
                         <div class="site-footer-contact">
-                            Saharanpur, Uttar Pradesh<br>
+                            Janta Road, Saharanpur, Uttar Pradesh<br>
                             admissions@dreamscollege.in | info@dreamscollege.in
                         </div>
                     </div>
