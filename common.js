@@ -44,8 +44,8 @@
                 <div class="footer-grid">
                     <div class="site-footer-brand">
                         <div class="site-logo-name">Dreams Group of Colleges</div>
-                        <p style="margin: 0; padding: 0;">Affiliated to: Dr. APJ Abdul Kalam Technical University, Lucknow</p>
-                        <p style="margin: 0; padding: 0;">BET Lucknow</p>
+                        <p style="margin: 0; padding: 0;">Affiliated to: Dr. APJ Abdul Kalam Technical University, Lucknow | BTE Lucknow</p>
+                        
                         <p style="margin: 0; padding: 0;">Approved By: Pharmacy Council of India, New Delhi</p>
                         <div class="site-footer-contact">
                             Janta Road, Saharanpur, Uttar Pradesh<br>
