@@ -1,0 +1,675 @@
+<!-- d_el_ed.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>D.El.Ed. Program - Dreams Group of Colleges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b1f3a;
+      --navy2:   #162d52;
+      --gold:    #c9a84c;
+      --gold2:   #e8c76e;
+      --cream:   #f7f3ec;
+      --white:   #ffffff;
+      --text:    #1a1a2e;
+      --muted:   #5a6272;
+      --border:  #d6cdb8;
+      --red:     #9b2335;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'DM Sans', sans-serif;
+      --font-mono:  'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 1.2rem; transition: color 0.2s; }
+    .topbar a:hover { color: var(--gold2); }
+
+    /* ─── COURSE HERO ─── */
+    .course-hero {
+      min-height: 60vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .course-hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3rem 4rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .course-hero-left .tag { margin-bottom: 1.2rem; }
+
+    .course-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+    }
+
+    .course-hero-title em {
+      font-style: italic;
+      color: var(--gold2);
+    }
+
+    .course-hero-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .course-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    .btn-secondary {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold2); }
+
+    .course-hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 8s ease;
+    }
+    .course-hero-right:hover img { transform: scale(1.04); }
+
+    /* ─── COURSE DETAILS ─── */
+    .course-details { padding: 5rem 0; background: var(--white); }
+    .course-details-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    .course-description h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .course-description h2 em { font-style: italic; color: var(--red); }
+
+    .course-description p {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .course-highlights {
+      list-style: none;
+      margin: 2rem 0;
+    }
+    .course-highlights li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .course-highlights li::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    .course-sidebar {
+      background: var(--cream);
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .course-sidebar h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.2rem;
+    }
+
+    .course-sidebar-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .course-sidebar-item:last-child { border-bottom: none; }
+    .course-sidebar-item .label {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+    }
+    .course-sidebar-item .value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-top: 2px;
+      display: block;
+    }
+
+    .enroll-now-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 1.5rem;
+      padding: 0.85rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .enroll-now-btn:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* ─── CURRICULUM ─── */
+    .curriculum-section { padding: 5rem 0; background: var(--cream); }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .curriculum-card {
+      background: var(--white);
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .curriculum-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(11,31,58,0.08); }
+    .curriculum-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .curriculum-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── CAREER OPPORTUNITIES ─── */
+    .career-section { padding: 5rem 0; background: var(--white); }
+    .career-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .career-item {
+      background: var(--cream);
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform 0.25s;
+    }
+    .career-item:hover { transform: translateY(-4px); }
+    .career-item .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .career-item h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .career-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ─── APPROVALS ─── */
+    .approvals-section {
+      padding: 3rem 0;
+      background: var(--navy);
+      color: var(--white);
+    }
+    .approvals-grid {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .approval-item {
+      text-align: center;
+    }
+    .approval-item .logo {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .approval-item p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+    }
+    .approval-item strong {
+      color: var(--gold2);
+      display: block;
+      font-size: 0.9rem;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .course-hero { grid-template-columns: 1fr; }
+      .course-hero-right { height: 250px; }
+      .course-hero-left { padding: 2rem 1.5rem; }
+      .course-details-grid { grid-template-columns: 1fr; }
+      .curriculum-grid { grid-template-columns: 1fr; }
+      .career-grid { grid-template-columns: 1fr 1fr; }
+      .approvals-grid { gap: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .career-grid { grid-template-columns: 1fr; }
+      .course-hero-left { padding: 2rem 1rem; }
+      .approvals-grid { flex-direction: column; gap: 1rem; }
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="common.css?v=20260628-1" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📍 Saharanpur, Uttar Pradesh</span>
+        <span>📞 +91-712-254-8900</span>
+        <span>✉ admissions@dreamscollege.in</span>
+      </div>
+      <div>
+        <a href="about.html">Alumni</a>
+        <a href="contact.html">E-Governance</a>
+        <a href="about.html">NIRF</a>
+        <a href="about.html">NAAC</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER (will be replaced by common.js) -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-block">
+        <img class="logo-emblem" src="assets/dreams-logo-white.png" alt="Dreams logo" />
+        <div class="logo-text">
+          <div class="logo-name">Dreams Group of Colleges</div>
+          <div class="logo-est">Saharanpur &middot; Uttar Pradesh</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="campus.html">Campus</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="admissions.html" class="btn-outline">Apply Now</a>
+        <a href="https://www.merashikshasahayak.in" class="btn-fill">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- COURSE HERO -->
+  <section class="course-hero">
+    <div class="course-hero-left">
+      <span class="tag">Program Overview</span>
+      <h1 class="course-hero-title">
+        Diploma in Elementary <em>Education</em>
+      </h1>
+      <p class="course-hero-subtitle">
+        D.El.Ed. is a 2-year professional program that prepares educators to teach at the elementary level (Classes 1 to 8). The program focuses on child development, teaching methodologies, classroom management, and practical teaching experience, enabling graduates to build a strong foundation in early education.
+      </p>
+      <div class="course-hero-actions">
+        <a href="applynow.html" class="btn-primary">Enroll Now</a>
+        <a href="#curriculum" class="btn-secondary">View Curriculum</a>
+      </div>
+    </div>
+    <div class="course-hero-right">
+      <img src="assets/deled-hero.jpg" alt="D.El.Ed. Program" loading="eager" />
+    </div>
+  </section>
+
+  <!-- APPROVALS -->
+  <!-- <section class="approvals-section reveal">
+    <div class="container">
+      <div class="approvals-grid">
+        <div class="approval-item">
+          <div class="logo">📚</div>
+          <strong>NCTE Approved</strong>
+          <p>Approved by National Council for Teacher Education</p>
+        </div>
+        <div class="approval-item">
+          <div class="logo">🏛️</div>
+          <strong>SCERT Uttar Pradesh</strong>
+          <p>Recognized by State Council of Educational Research & Training</p>
+        </div>
+        <div class="approval-item">
+          <div class="logo">✅</div>
+          <strong>Uttar Pradesh Govt.</strong>
+          <p>Recognized by Government of Uttar Pradesh</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- COURSE DETAILS -->
+  <section class="course-details reveal">
+    <div class="container">
+      <div class="course-details-grid">
+        <div class="course-description">
+          <h2>Why Choose <em>D.El.Ed. at Dreams</em>?</h2>
+          <p>
+            The Diploma in Elementary Education program at Dreams Group of Colleges is designed to develop skilled and compassionate elementary educators who can create a positive learning environment for young children. Our curriculum combines theoretical knowledge with extensive practical experience, ensuring graduates are well-prepared for the classroom.
+          </p>
+          <p>
+            Students gain hands-on experience through teaching practice sessions, school internships, and workshops. Our experienced faculty members provide mentorship and guidance, helping students develop effective teaching strategies, understanding of child psychology, and classroom management skills. The program prepares graduates for teaching positions in government and private schools, as well as further studies in education.
+          </p>
+          <ul class="course-highlights">
+            <li>Comprehensive understanding of child development and learning</li>
+            <li>Practical teaching experience and school internships</li>
+            <li>Development of effective teaching methodologies</li>
+            <li>Preparation for TET and other teaching exams</li>
+            <li>Pathway to B.Ed. and higher education</li>
+          </ul>
+        </div>
+
+        <div class="course-sidebar">
+          <h3>Program at a Glance</h3>
+          <div class="course-sidebar-item">
+            <span class="label">Duration</span>
+            <span class="value">2 Years (4 Semesters)</span>
+          </div>
+          <div class="course-sidebar-item">
+            <span class="label">Eligibility</span>
+            <span class="value">10+2 with 50% min (45% for SC/ST)</span>
+          </div>
+          <div class="course-sidebar-item">
+            <span class="label">Annual Fee</span>
+            <span class="value">₹ 25,000 (approx.)</span>
+          </div>
+          <div class="course-sidebar-item">
+            <span class="label">Intake</span>
+            <span class="value">50 Seats</span>
+          </div>
+          <div class="course-sidebar-item">
+            <span class="label">Approval</span>
+            <span class="value">NCTE, New Delhi</span>
+          </div>
+          <a href="applynow.html" class="enroll-now-btn">🎓 Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM -->
+  <section class="curriculum-section reveal" id="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Curriculum</span>
+        <h2 class="section-title" style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy);">Program <em>Structure</em></h2>
+      </div>
+      <div class="curriculum-grid">
+        <div class="curriculum-card">
+          <h4>Semester 1: Foundations</h4>
+          <p>Child Development, Educational Psychology, Language Development, Primary Education Curriculum, Teaching Learning Process.</p>
+        </div>
+        <div class="curriculum-card">
+          <h4>Semester 2: Pedagogy & Methods</h4>
+          <p>Pedagogy of Language, Pedagogy of Mathematics, Environmental Studies, Educational Technology, Teaching Practice I.</p>
+        </div>
+        <div class="curriculum-card">
+          <h4>Semester 3: Advanced Studies</h4>
+          <p>Inclusive Education, Health & Physical Education, Art in Education, Work Education, Teaching Practice II.</p>
+        </div>
+        <div class="curriculum-card">
+          <h4>Semester 4: Research & Practice</h4>
+          <p>Action Research, School Internship, Community Engagement, Classroom Management, Professional Development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER OPPORTUNITIES -->
+  <section class="career-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Career Paths</span>
+        <h2 class="section-title" style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy);">Your Future <em>Starts Here</em></h2>
+      </div>
+      <div class="career-grid">
+        <div class="career-item">
+          <div class="icon">🏫</div>
+          <h4>Primary School Teacher</h4>
+          <p>Teach Classes 1 to 5 in government and private schools.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">📘</div>
+          <h4>Elementary Teacher</h4>
+          <p>Teach Classes 6 to 8 in middle schools.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">🧠</div>
+          <h4>Educational Counsellor</h4>
+          <p>Guide elementary students in academic development.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">🎓</div>
+          <h4>Further Studies</h4>
+          <p>Pursue B.Ed. or other higher education programs.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">📊</div>
+          <h4>Curriculum Developer</h4>
+          <p>Design educational materials for primary levels.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">💻</div>
+          <h4>EdTech Professional</h4>
+          <p>Work in educational technology for elementary education.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">📝</div>
+          <h4>Education Researcher</h4>
+          <p>Conduct research in elementary education.</p>
+        </div>
+        <div class="career-item">
+          <div class="icon">🤝</div>
+          <h4>NGO Worker</h4>
+          <p>Work with NGOs focused on child education.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (will be replaced by common.js) -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-name" style="font-family:'Playfair Display',serif; font-size:1rem; color:#fff;">Dreams Group of Colleges</div>
+          <p>Approved by: National Council for Teacher Education (NCTE), New Delhi</p>
+          <p>Recognized by: SCERT Uttar Pradesh</p>
+          <div class="footer-contact">
+            📍 Janta Road, Saharanpur, Uttar Pradesh<br>
+            📞 +91-712-254-8900 &nbsp;|&nbsp; ✉ admissions@dreamscollege.in
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Academics</h5>
+          <ul>
+            <li><a href="academics.html">Programmes</a></li>
+            <li><a href="academics.html">Departments</a></li>
+            <li><a href="academics.html">Training & Placements</a></li>
+            <li><a href="research.html">Research</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="admissions.html">Admissions 2026-27</a></li>
+            <li><a href="campus.html">Campus Life</a></li>
+            <li><a href="about.html">About College</a></li>
+            <li><a href="contact.html">Enquiry Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institution</h5>
+          <ul>
+            <li><a href="about.html">Vision & Mission</a></li>
+            <li><a href="about.html">Leadership</a></li>
+            <li><a href="research.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Dreams Group of Colleges. All Rights Reserved.</span>
+        <div class="footer-accred">
+          <span class="accred-badge">NCTE Approved</span>
+          <span class="accred-badge">SCERT Recognized</span>
+          <span class="accred-badge">Saharanpur</span>
+          <span class="accred-badge">Powered by <a href="https://www.merashikshasahayak.com/">MSS</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+  <script src="common.js?v=20260628-1"></script>
+</body>
+</html>

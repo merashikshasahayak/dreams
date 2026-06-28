@@ -1,0 +1,860 @@
+<!-- syllabus.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Syllabus - Dreams Group of Colleges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b1f3a;
+      --navy2:   #162d52;
+      --gold:    #c9a84c;
+      --gold2:   #e8c76e;
+      --cream:   #f7f3ec;
+      --white:   #ffffff;
+      --text:    #1a1a2e;
+      --muted:   #5a6272;
+      --border:  #d6cdb8;
+      --red:     #9b2335;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'DM Sans', sans-serif;
+      --font-mono:  'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 1.2rem; transition: color 0.2s; }
+    .topbar a:hover { color: var(--gold2); }
+
+    /* ─── HERO ─── */
+    .syllabus-hero {
+      min-height: 35vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .syllabus-hero::before {
+      content: '📚';
+      font-size: 18rem;
+      position: absolute;
+      right: -1rem;
+      bottom: -4rem;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .syllabus-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .syllabus-hero-content .tag { margin-bottom: 1rem; }
+    .syllabus-hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 0.8rem;
+    }
+    .syllabus-hero-content h1 em { font-style: italic; color: var(--gold2); }
+    .syllabus-hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ─── SEARCH BAR ─── */
+    .search-section {
+      padding: 2rem 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .search-section .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+    }
+    .search-wrapper input {
+      width: 100%;
+      padding: 0.8rem 1.2rem 0.8rem 3rem;
+      border: 2px solid var(--border);
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      background: var(--cream);
+      color: var(--text);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .search-wrapper input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(201, 168, 76, 0.15);
+    }
+    .search-wrapper .search-icon {
+      position: absolute;
+      left: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .search-wrapper .clear-btn {
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: var(--muted);
+      cursor: pointer;
+      display: none;
+      padding: 0.2rem;
+    }
+    .search-wrapper .clear-btn.visible { display: block; }
+    .search-wrapper .clear-btn:hover { color: var(--navy); }
+
+    /* ─── SYLLABUS LIST ─── */
+    .syllabus-section {
+      padding: 3rem 0 5rem;
+      background: var(--cream);
+    }
+    .syllabus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .syllabus-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-left: 4px solid var(--gold);
+    }
+    .syllabus-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(11,31,58,0.08);
+    }
+    .syllabus-card .course-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      padding: 2px 10px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+      width: fit-content;
+    }
+    .syllabus-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .syllabus-card .subject-code {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .syllabus-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .syllabus-card .meta-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .syllabus-card .meta-info .semester {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: var(--cream);
+      padding: 2px 10px;
+      border-radius: 2px;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #1a73e8;
+      padding: 0.5rem 1.2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+    }
+    .download-btn:hover {
+      background: #1557b0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(26, 115, 232, 0.4);
+    }
+    .download-btn:active {
+      transform: translateY(0);
+    }
+    .download-btn .icon { 
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .download-btn.loading {
+      background: #6c757d;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .download-btn.error {
+      background: #dc3545;
+    }
+    .download-btn.error:hover {
+      background: #c82333;
+    }
+    .download-btn.success {
+      background: #28a745;
+    }
+    .download-btn.success:hover {
+      background: #218838;
+    }
+
+    /* ─── TOAST NOTIFICATION ─── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      max-width: 400px;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .toast.success { background: #28a745; }
+    .toast.error { background: #dc3545; }
+    .toast.info { background: #17a2b8; }
+    .toast .toast-close {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: 0.8rem;
+      opacity: 0.7;
+    }
+    .toast .toast-close:hover { opacity: 1; }
+
+    /* ─── NO RESULTS ─── */
+    .no-results {
+      text-align: center;
+      padding: 3rem 0;
+      grid-column: 1 / -1;
+    }
+    .no-results .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+    .no-results h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--navy); }
+    .no-results p { color: var(--muted); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .syllabus-grid { grid-template-columns: 1fr; }
+      .search-wrapper { max-width: 100%; }
+      .download-btn { font-size: 0.7rem; padding: 0.4rem 1rem; }
+      .toast { bottom: 1rem; right: 1rem; left: 1rem; max-width: none; }
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="common.css?v=20260628-1" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📍 Saharanpur, Uttar Pradesh</span>
+        <span>📞 +91-712-254-8900</span>
+        <span>✉ admissions@dreamscollege.in</span>
+      </div>
+      <div>
+        <a href="about.html">Alumni</a>
+        <a href="contact.html">E-Governance</a>
+        <a href="about.html">NIRF</a>
+        <a href="about.html">NAAC</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER (will be replaced by common.js) -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-block">
+        <img class="logo-emblem" src="assets/dreams-logo-white.png" alt="Dreams logo" />
+        <div class="logo-text">
+          <div class="logo-name">Dreams Group of Colleges</div>
+          <div class="logo-est">Saharanpur &middot; Uttar Pradesh</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="campus.html">Campus</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="admissions.html" class="btn-outline">Apply Now</a>
+        <a href="https://www.merashikshasahayak.in" class="btn-fill">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SYLLABUS HERO -->
+  <section class="syllabus-hero">
+    <div class="container syllabus-hero-content">
+      <span class="tag">Academic Resources</span>
+      <h1>Course <em>Syllabus</em></h1>
+      <p>Download semester-wise syllabus for all programs. Click the Download button to directly download your subject syllabus.</p>
+    </div>
+  </section>
+
+  <!-- SEARCH SECTION -->
+  <section class="search-section reveal">
+    <div class="container">
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search by subject name, course, or semester..." aria-label="Search syllabus" />
+        <button class="clear-btn" id="clearBtn" aria-label="Clear search">✕</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYLLABUS LIST -->
+  <section class="syllabus-section reveal" id="syllabusList">
+    <div class="container">
+      <div class="syllabus-grid" id="syllabusGrid">
+        <!-- Cards will be rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast">
+    <span id="toastMessage">Message</span>
+    <button class="toast-close" id="toastClose">✕</button>
+  </div>
+
+  <!-- FOOTER (will be replaced by common.js) -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-name" style="font-family:'Playfair Display',serif; font-size:1rem; color:#fff;">Dreams Group of Colleges</div>
+          <p>Affiliated to: Dr. APJ Abdul Kalam Technical University, Lucknow | BTE Lucknow</p>
+          <div class="footer-contact">
+            📍 Janta Road, Saharanpur, Uttar Pradesh<br>
+            📞 +91-712-254-8900 &nbsp;|&nbsp; ✉ admissions@dreamscollege.in
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Academics</h5>
+          <ul>
+            <li><a href="academics.html">Programmes</a></li>
+            <li><a href="academics.html">Departments</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="research.html">Research</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="admissions.html">Admissions 2026-27</a></li>
+            <li><a href="campus.html">Campus Life</a></li>
+            <li><a href="about.html">About College</a></li>
+            <li><a href="contact.html">Enquiry Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institution</h5>
+          <ul>
+            <li><a href="about.html">Vision & Mission</a></li>
+            <li><a href="about.html">Leadership</a></li>
+            <li><a href="research.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Dreams Group of Colleges. All Rights Reserved.</span>
+        <div class="footer-accred">
+          <span class="accred-badge">AKTU Affiliated</span>
+          <span class="accred-badge">Saharanpur</span>
+          <span class="accred-badge">Uttar Pradesh</span>
+          <span class="accred-badge">Powered by <a href="https://www.merashikshasahayak.com/">MSS</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── TOAST NOTIFICATION ───
+    function showToast(message, type = 'info') {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      
+      toast.className = 'toast ' + type;
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      
+      // Auto hide after 5 seconds
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 5000);
+    }
+
+    document.getElementById('toastClose').addEventListener('click', function() {
+      document.getElementById('toast').classList.remove('show');
+    });
+
+    // ─── SYLLABUS DATA ───
+    const syllabusData = [
+      // BCA
+      { id: 1, course: 'bca', courseName: 'BCA', semester: 1, subject: 'Programming Fundamentals using C', code: 'BCA-101', description: 'Introduction to programming, data types, operators, control structures, functions, and arrays.', driveLink: 'https://drive.google.com/uc?export=download&id=1ABC123xyz' },
+      { id: 2, course: 'bca', courseName: 'BCA', semester: 1, subject: 'Digital Logic & Computer Organization', code: 'BCA-102', description: 'Number systems, Boolean algebra, logic gates, combinational circuits, and computer architecture basics.', driveLink: 'https://drive.google.com/uc?export=download&id=1DEF456uvw' },
+      { id: 3, course: 'bca', courseName: 'BCA', semester: 2, subject: 'Data Structures', code: 'BCA-201', description: 'Arrays, linked lists, stacks, queues, trees, graphs, and sorting/searching algorithms.', driveLink: 'https://drive.google.com/uc?export=download&id=1GHI789rst' },
+      { id: 4, course: 'bca', courseName: 'BCA', semester: 3, subject: 'Object Oriented Programming (Java)', code: 'BCA-301', description: 'OOP concepts, classes, inheritance, polymorphism, exception handling, and collections.', driveLink: 'https://drive.google.com/uc?export=download&id=1JKL012mno' },
+      { id: 5, course: 'bca', courseName: 'BCA', semester: 4, subject: 'Operating Systems', code: 'BCA-401', description: 'Process management, memory management, file systems, security, and Linux basics.', driveLink: 'https://drive.google.com/uc?export=download&id=1MNO345pqr' },
+      { id: 6, course: 'bca', courseName: 'BCA', semester: 5, subject: 'Python Programming', code: 'BCA-501', description: 'Python syntax, data structures, OOP, file handling, and module development.', driveLink: 'https://drive.google.com/uc?export=download&id=1PQR678stu' },
+      { id: 7, course: 'bca', courseName: 'BCA', semester: 6, subject: 'Web Technologies', code: 'BCA-601', description: 'HTML, CSS, JavaScript, Bootstrap, PHP, and web application development.', driveLink: 'https://drive.google.com/uc?export=download&id=1STU901vwx' },
+
+      // BBA
+      { id: 8, course: 'bba', courseName: 'BBA', semester: 1, subject: 'Principles of Management', code: 'BBA-101', description: 'Management concepts, functions, organizational behavior, and leadership theories.', driveLink: 'https://drive.google.com/uc?export=download&id=1VWX234yza' },
+      { id: 9, course: 'bba', courseName: 'BBA', semester: 2, subject: 'Business Economics', code: 'BBA-201', description: 'Micro and macro economics, demand analysis, cost concepts, and market structures.', driveLink: 'https://drive.google.com/uc?export=download&id=1YZA789bcd' },
+      { id: 10, course: 'bba', courseName: 'BBA', semester: 3, subject: 'Marketing Management', code: 'BBA-301', description: 'Marketing concepts, consumer behavior, branding, and digital marketing strategies.', driveLink: 'https://drive.google.com/uc?export=download&id=1BCD123efg' },
+      { id: 11, course: 'bba', courseName: 'BBA', semester: 4, subject: 'Human Resource Management', code: 'BBA-401', description: 'HR planning, recruitment, training, performance evaluation, and labor laws.', driveLink: 'https://drive.google.com/uc?export=download&id=1EFG456hij' },
+
+      // B.Com
+      { id: 12, course: 'bcom', courseName: 'B.Com', semester: 1, subject: 'Financial Accounting', code: 'COM-101', description: 'Advanced accounting, partnerships, company accounts, and financial reporting.', driveLink: 'https://drive.google.com/uc?export=download&id=1HIJ789klm' },
+      { id: 13, course: 'bcom', courseName: 'B.Com', semester: 2, subject: 'Business Law', code: 'COM-201', description: 'Contract act, company law, partnership act, and business regulations.', driveLink: 'https://drive.google.com/uc?export=download&id=1KLM012nop' },
+      { id: 14, course: 'bcom', courseName: 'B.Com', semester: 3, subject: 'Corporate Accounting', code: 'COM-301', description: 'Amalgamation, consolidation, profit/loss, and accounting standards.', driveLink: 'https://drive.google.com/uc?export=download&id=1NOP345qrs' },
+
+      // B.A.
+      { id: 15, course: 'ba', courseName: 'B.A.', semester: 1, subject: 'English Literature', code: 'BA-101', description: 'Classical and modern English literature, poetry, prose, and drama analysis.', driveLink: 'https://drive.google.com/uc?export=download&id=1QRS678tuv' },
+      { id: 16, course: 'ba', courseName: 'B.A.', semester: 2, subject: 'History of India', code: 'BA-201', description: 'Ancient, medieval, and modern Indian history with cultural perspectives.', driveLink: 'https://drive.google.com/uc?export=download&id=1TUV901wxy' },
+      { id: 17, course: 'ba', courseName: 'B.A.', semester: 3, subject: 'Political Science', code: 'BA-301', description: 'Indian constitution, political theory, and comparative politics.', driveLink: 'https://drive.google.com/uc?export=download&id=1WXY234zab' },
+
+      // B.Pharma
+      { id: 18, course: 'bpharma', courseName: 'B.Pharma', semester: 1, subject: 'Pharmaceutical Chemistry I', code: 'BP-101', description: 'Organic chemistry fundamentals, functional groups, and pharmaceutical compounds.', driveLink: 'https://drive.google.com/uc?export=download&id=1ZAB567cde' },
+      { id: 19, course: 'bpharma', courseName: 'B.Pharma', semester: 2, subject: 'Pharmaceutics I', code: 'BP-201', description: 'Dosage forms, pharmaceutical calculations, and formulation techniques.', driveLink: 'https://drive.google.com/uc?export=download&id=1CDE890fgh' },
+      { id: 20, course: 'bpharma', courseName: 'B.Pharma', semester: 3, subject: 'Pharmacology I', code: 'BP-301', description: 'Drug actions, pharmacokinetics, pharmacodynamics, and drug interactions.', driveLink: 'https://drive.google.com/uc?export=download&id=1FGH123ijk' },
+
+      // D.Pharma
+      { id: 21, course: 'dpharma', courseName: 'D.Pharma', semester: 1, subject: 'Pharmaceutical Chemistry I', code: 'DP-101', description: 'Basic organic chemistry and pharmaceutical compounds.', driveLink: 'https://drive.google.com/uc?export=download&id=1JKL456lmn' },
+      { id: 22, course: 'dpharma', courseName: 'D.Pharma', semester: 2, subject: 'Pharmacology', code: 'DP-201', description: 'Basic pharmacology and drug classifications.', driveLink: 'https://drive.google.com/uc?export=download&id=1MNO789opq' },
+
+      // B.Ed.
+      { id: 23, course: 'bed', courseName: 'B.Ed.', semester: 1, subject: 'Philosophical Foundations of Education', code: 'BE-101', description: 'Educational philosophies, theories, and their application in teaching.', driveLink: 'https://drive.google.com/uc?export=download&id=1PQR123rst' },
+      { id: 24, course: 'bed', courseName: 'B.Ed.', semester: 2, subject: 'Psychology of Learning', code: 'BE-201', description: 'Theories of learning, cognitive development, and motivation.', driveLink: 'https://drive.google.com/uc?export=download&id=1STU456uvw' },
+
+      // D.El.Ed.
+      { id: 25, course: 'deled', courseName: 'D.El.Ed.', semester: 1, subject: 'Child Development & Learning', code: 'DE-101', description: 'Child psychology, development stages, and learning theories.', driveLink: 'https://drive.google.com/uc?export=download&id=1VWX789xyz' },
+      { id: 26, course: 'deled', courseName: 'D.El.Ed.', semester: 2, subject: 'Language Development', code: 'DE-201', description: 'Language acquisition, literacy skills, and communication development.', driveLink: 'https://drive.google.com/uc?export=download&id=1YZA012abc' },
+
+      // Polytechnic
+      { id: 27, course: 'polytechnic', courseName: 'Polytechnic', semester: 1, subject: 'Engineering Mathematics I', code: 'PE-101', description: 'Algebra, calculus, and differential equations for engineering.', driveLink: 'https://drive.google.com/uc?export=download&id=1BCD345def' },
+      { id: 28, course: 'polytechnic', courseName: 'Polytechnic', semester: 2, subject: 'Applied Physics', code: 'PE-201', description: 'Mechanics, thermodynamics, and electrical fundamentals.', driveLink: 'https://drive.google.com/uc?export=download&id=1EFG678ghi' },
+      { id: 29, course: 'polytechnic', courseName: 'Polytechnic', semester: 3, subject: 'Mechanical Engineering Basics', code: 'PE-301', description: 'Manufacturing processes, materials, and basic mechanics.', driveLink: 'https://drive.google.com/uc?export=download&id=1HIJ901jkl' },
+      { id: 30, course: 'polytechnic', courseName: 'Polytechnic', semester: 4, subject: 'Electrical Engineering Basics', code: 'PE-401', description: 'Circuit analysis, motors, and power systems.', driveLink: 'https://drive.google.com/uc?export=download&id=1KLM234mno' },
+    ];
+
+    // ─── CONVERT DRIVE LINK TO DIRECT DOWNLOAD ───
+    function getDirectDownloadLink(link) {
+      // If already a direct download link, return as is
+      if (link.includes('export=download')) {
+        return link;
+      }
+      
+      // Extract file ID from various Google Drive link formats
+      let fileId = null;
+      
+      // Format 1: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+      let match = link.match(/\/file\/d\/([^\/]+)/);
+      if (match) fileId = match[1];
+      
+      // Format 2: https://drive.google.com/open?id=FILE_ID
+      if (!fileId) {
+        match = link.match(/[?&]id=([^&]+)/);
+        if (match) fileId = match[1];
+      }
+      
+      // Format 3: https://drive.google.com/uc?id=FILE_ID&export=download
+      if (!fileId) {
+        match = link.match(/[?&]id=([^&]+)/);
+        if (match) fileId = match[1];
+      }
+      
+      if (fileId) {
+        return `https://drive.google.com/uc?export=download&id=${fileId}`;
+      }
+      
+      // If no ID found, return original link
+      return link;
+    }
+
+    // ─── CHECK IF FILE EXISTS ───
+    function checkFileExists(url) {
+      return new Promise((resolve) => {
+        // Use fetch with HEAD method to check if file exists
+        fetch(url, { method: 'HEAD', mode: 'cors' })
+          .then(response => {
+            if (response.ok) {
+              resolve(true);
+            } else {
+              resolve(false);
+            }
+          })
+          .catch(() => {
+            // If CORS blocks, try with a different approach
+            // For Google Drive, we'll try to check via a different method
+            if (url.includes('drive.google.com')) {
+              // Try to fetch the file with a small range request
+              fetch(url, { 
+                method: 'GET',
+                headers: { 'Range': 'bytes=0-100' }
+              })
+              .then(response => {
+                if (response.ok || response.status === 206) {
+                  resolve(true);
+                } else if (response.status === 404) {
+                  resolve(false);
+                } else {
+                  // For Google Drive, we'll assume it exists if we get a response
+                  resolve(true);
+                }
+              })
+              .catch(() => resolve(true)); // If fetch fails, assume file exists
+            } else {
+              resolve(true);
+            }
+          });
+      });
+    }
+
+    // ─── DOWNLOAD FILE ───
+    async function downloadFile(url, filename, button) {
+      // Check if file exists first
+      const exists = await checkFileExists(url);
+      
+      if (!exists) {
+        showToast('❌ File Not Available. The syllabus file could not be found.', 'error');
+        if (button) {
+          button.classList.remove('loading');
+          button.innerHTML = '<span class="icon">⬇</span> Download';
+          button.classList.add('error');
+          setTimeout(() => {
+            button.classList.remove('error');
+          }, 3000);
+        }
+        return;
+      }
+
+      // Show loading state on button
+      if (button) {
+        button.classList.add('loading');
+        button.innerHTML = '<span class="icon">⏳</span> Downloading...';
+      }
+
+      try {
+        const response = await fetch(url, { mode: 'cors' });
+        
+        if (!response.ok) {
+          // If fetch fails (CORS), try opening in new tab as fallback
+          if (response.status === 404) {
+            showToast('❌ File Not Available. The syllabus file could not be found.', 'error');
+            if (button) {
+              button.classList.remove('loading');
+              button.innerHTML = '<span class="icon">⬇</span> Download';
+            }
+            return;
+          }
+          throw new Error('Download failed');
+        }
+        
+        const blob = await response.blob();
+        
+        // Check if blob is empty or not a PDF
+        if (blob.size === 0) {
+          showToast('❌ File is empty or corrupted.', 'error');
+          if (button) {
+            button.classList.remove('loading');
+            button.innerHTML = '<span class="icon">⬇</span> Download';
+          }
+          return;
+        }
+
+        // Create download link
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename || 'syllabus.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Clean up
+        setTimeout(() => {
+          URL.revokeObjectURL(link.href);
+        }, 1000);
+        
+        showToast('✅ Download started successfully!', 'success');
+        
+        if (button) {
+          button.classList.remove('loading');
+          button.innerHTML = '<span class="icon">⬇</span> Download';
+          button.classList.add('success');
+          setTimeout(() => {
+            button.classList.remove('success');
+          }, 3000);
+        }
+      } catch (error) {
+        console.error('Download error:', error);
+        
+        // Try alternative download method for Google Drive
+        if (url.includes('drive.google.com')) {
+          showToast('ℹ️ Opening file in new tab. Please click download there.', 'info');
+          window.open(url, '_blank');
+          
+          if (button) {
+            button.classList.remove('loading');
+            button.innerHTML = '<span class="icon">⬇</span> Download';
+          }
+          return;
+        }
+        
+        showToast('❌ Error downloading file. Please try again.', 'error');
+        if (button) {
+          button.classList.remove('loading');
+          button.innerHTML = '<span class="icon">⬇</span> Download';
+          button.classList.add('error');
+          setTimeout(() => {
+            button.classList.remove('error');
+          }, 3000);
+        }
+      }
+    }
+
+    // ─── RENDER SYLLABUS CARDS ───
+    function renderSyllabus(data) {
+      const grid = document.getElementById('syllabusGrid');
+      grid.innerHTML = '';
+
+      if (data.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            <div class="icon">📭</div>
+            <h3>No syllabus found</h3>
+            <p>Try adjusting your search terms.</p>
+          </div>
+        `;
+        return;
+      }
+
+      data.forEach(item => {
+        const downloadUrl = getDirectDownloadLink(item.driveLink);
+        const filename = `${item.code}_${item.subject.replace(/\s+/g, '_')}.pdf`;
+        
+        const card = document.createElement('div');
+        card.className = 'syllabus-card reveal';
+        card.dataset.id = item.id;
+        card.innerHTML = `
+          <span class="course-tag">${item.courseName} · Sem ${item.semester}</span>
+          <h3>${item.subject}</h3>
+          <div class="subject-code">${item.code}</div>
+          <p>${item.description}</p>
+          <div class="meta-info">
+            <span class="semester">📖 Semester ${item.semester}</span>
+            <button class="download-btn" data-url="${downloadUrl}" data-filename="${filename}">
+              <span class="icon">⬇</span> Download
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Add download event listeners to all buttons
+      document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', async function(e) {
+          e.preventDefault();
+          const url = this.dataset.url;
+          const filename = this.dataset.filename;
+          await downloadFile(url, filename, this);
+        });
+      });
+
+      // Re-trigger reveal animations
+      const reveals = grid.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      reveals.forEach(el => io.observe(el));
+    }
+
+    // ─── SEARCH LOGIC ───
+    function filterSyllabus(searchTerm) {
+      const term = searchTerm.toLowerCase().trim();
+      
+      if (term === '') {
+        renderSyllabus(syllabusData);
+        return;
+      }
+
+      const filtered = syllabusData.filter(item =>
+        item.subject.toLowerCase().includes(term) ||
+        item.code.toLowerCase().includes(term) ||
+        item.courseName.toLowerCase().includes(term) ||
+        item.semester.toString().includes(term) ||
+        item.description.toLowerCase().includes(term)
+      );
+
+      renderSyllabus(filtered);
+    }
+
+    // ─── EVENT LISTENERS ───
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSyllabus(syllabusData);
+
+      const searchInput = document.getElementById('searchInput');
+      const clearBtn = document.getElementById('clearBtn');
+
+      searchInput.addEventListener('input', function() {
+        const value = this.value;
+        filterSyllabus(value);
+        clearBtn.classList.toggle('visible', value.length > 0);
+      });
+
+      clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        filterSyllabus('');
+        this.classList.remove('visible');
+        searchInput.focus();
+      });
+    });
+
+    // ─── SCROLL REVEAL ───
+    const reveals = document.querySelectorAll('.reveal:not(.syllabus-card)');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+  <script src="common.js?v=20260628-1"></script>
+</body>
+</html>

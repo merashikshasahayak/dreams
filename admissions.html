@@ -1,0 +1,711 @@
+<!-- admissions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Admissions - Dreams Group of Colleges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b1f3a;
+      --navy2:   #162d52;
+      --gold:    #c9a84c;
+      --gold2:   #e8c76e;
+      --cream:   #f7f3ec;
+      --white:   #ffffff;
+      --text:    #1a1a2e;
+      --muted:   #5a6272;
+      --border:  #d6cdb8;
+      --red:     #9b2335;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'DM Sans', sans-serif;
+      --font-mono:  'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 1.2rem; transition: color 0.2s; }
+    .topbar a:hover { color: var(--gold2); }
+
+    /* ─── HERO ─── */
+    .admissions-hero {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .admissions-hero::before {
+      content: '🎓';
+      font-size: 20rem;
+      position: absolute;
+      right: -2rem;
+      bottom: -4rem;
+      opacity: 0.06;
+      pointer-events: none;
+    }
+    .admissions-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .admissions-hero-content .tag { margin-bottom: 1rem; }
+    .admissions-hero-content h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 0.8rem;
+    }
+    .admissions-hero-content h1 em { font-style: italic; color: var(--gold2); }
+    .admissions-hero-content p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ─── ADMISSION STEPS ─── */
+    .steps-section { padding: 5rem 0; background: var(--white); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .step-card {
+      background: var(--cream);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(11,31,58,0.08); }
+    .step-card .step-number {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.2;
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+    }
+    .step-card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .step-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .step-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── COURSES & ELIGIBILITY ─── */
+    .courses-section { padding: 5rem 0; background: var(--cream); }
+    .eligibility-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+    .eligibility-table th {
+      background: var(--navy);
+      color: var(--gold2);
+      padding: 1rem;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .eligibility-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .eligibility-table tr:last-child td { border-bottom: none; }
+    .eligibility-table tr:hover { background: rgba(201,168,76,0.05); }
+    .eligibility-table .course-name {
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .eligibility-table .duration {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ─── IMPORTANT DATES ─── */
+    .dates-section { padding: 5rem 0; background: var(--white); }
+    .dates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .date-card {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-left: 4px solid var(--gold);
+      transition: transform 0.25s;
+    }
+    .date-card:hover { transform: translateX(4px); }
+    .date-card .date {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .date-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0.3rem 0;
+    }
+    .date-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* ─── APPLICATION FORM ─── */
+    .form-section { padding: 5rem 0; background: var(--cream); }
+    .form-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 3rem;
+      border: 1px solid var(--border);
+    }
+    .form-wrapper h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .form-wrapper h2 em { font-style: italic; color: var(--red); }
+    .form-wrapper .subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.9rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .form-group label .required {
+      color: var(--red);
+      margin-left: 2px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      background: var(--cream);
+      color: var(--text);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+    .form-group textarea { min-height: 100px; resize: vertical; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .form-submit {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 0.9rem 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 2px;
+      margin-top: 0.5rem;
+    }
+    .form-submit:hover { background: var(--gold2); transform: translateY(-2px); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .steps-grid { grid-template-columns: 1fr; }
+      .eligibility-table { font-size: 0.8rem; }
+      .eligibility-table th,
+      .eligibility-table td { padding: 0.6rem 0.8rem; }
+      .form-wrapper { padding: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .dates-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="common.css?v=20260628-1" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>📍 Saharanpur, Uttar Pradesh</span>
+        <span>📞 +91-712-254-8900</span>
+        <span>✉ admissions@dreamscollege.in</span>
+      </div>
+      <div>
+        <a href="about.html">Alumni</a>
+        <a href="contact.html">E-Governance</a>
+        <a href="about.html">NIRF</a>
+        <a href="about.html">NAAC</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER (will be replaced by common.js) -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo-block">
+        <img class="logo-emblem" src="assets/dreams-logo-white.png" alt="Dreams logo" />
+        <div class="logo-text">
+          <div class="logo-name">Dreams Group of Colleges</div>
+          <div class="logo-est">Saharanpur &middot; Uttar Pradesh</div>
+        </div>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="admissions.html" class="active">Admissions</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="campus.html">Campus</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a href="admissions.html" class="btn-outline">Apply Now</a>
+        <a href="https://www.merashikshasahayak.in" class="btn-fill">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ADMISSIONS HERO -->
+  <section class="admissions-hero">
+    <div class="container admissions-hero-content">
+      <span class="tag">Admissions 2026-27</span>
+      <h1>Your Journey <em>Begins Here</em></h1>
+      <p>Take the first step towards a successful career. Apply now for admission to Dreams Group of Colleges. We offer a wide range of programs across multiple disciplines with industry-relevant curriculum and excellent placement opportunities.</p>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">How to Apply</span>
+        <h2 class="section-title" style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy);">Admission <em>Process</em></h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">01</span>
+          <div class="icon">📝</div>
+          <h4>Fill Application Form</h4>
+          <p>Complete the online application form with your personal and academic details.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">02</span>
+          <div class="icon">📄</div>
+          <h4>Upload Documents</h4>
+          <p>Upload scanned copies of your academic certificates, photo, and signature.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">03</span>
+          <div class="icon">💳</div>
+          <h4>Pay Application Fee</h4>
+          <p>Pay the application fee online through secure payment gateway.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-number">04</span>
+          <div class="icon">🎯</div>
+          <h4>Confirmation</h4>
+          <p>Receive confirmation and schedule for counseling/interview.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES & ELIGIBILITY -->
+  <section class="courses-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Programs</span>
+        <h2 class="section-title" style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy);">Courses & <em>Eligibility</em></h2>
+      </div>
+      <div class="table-responsive">
+        <table class="eligibility-table">
+          <thead>
+            <tr>
+              <th>Program</th>
+              <th>Duration</th>
+              <th>Eligibility</th>
+              <th>Intake</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course-name"><a href="bca.html" style="color:var(--navy); text-decoration:none;">BCA - Computer Applications</a></td>
+              <td class="duration">3 Years</td>
+              <td>10+2 with Mathematics (45% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="bba.html" style="color:var(--navy); text-decoration:none;">BBA - Management Studies</a></td>
+              <td class="duration">3 Years</td>
+              <td>10+2 from any stream (45% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="bcom.html" style="color:var(--navy); text-decoration:none;">B.Com - Commerce</a></td>
+              <td class="duration">3 Years</td>
+              <td>10+2 from any stream (45% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="ba.html" style="color:var(--navy); text-decoration:none;">B.A. - Arts & Humanities</a></td>
+              <td class="duration">3 Years</td>
+              <td>10+2 from any stream (40% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="bpharma.html" style="color:var(--navy); text-decoration:none;">B.Pharma - Pharmacy</a></td>
+              <td class="duration">4 Years</td>
+              <td>10+2 with PCB/PCM (50% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="dpharma.html" style="color:var(--navy); text-decoration:none;">D.Pharma - Pharmacy</a></td>
+              <td class="duration">2 Years</td>
+              <td>10+2 with PCB/PCM (45% min)</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="bed.html" style="color:var(--navy); text-decoration:none;">B.Ed. - Education</a></td>
+              <td class="duration">2 Years</td>
+              <td>Graduation with 50% min (45% for SC/ST)</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="d_el_ed.html" style="color:var(--navy); text-decoration:none;">D.El.Ed. - Elementary Education</a></td>
+              <td class="duration">2 Years</td>
+              <td>10+2 with 50% min (45% for SC/ST)</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td class="course-name"><a href="polytechnic.html" style="color:var(--navy); text-decoration:none;">Polytechnic - Engineering</a></td>
+              <td class="duration">3 Years</td>
+              <td>10th pass with 45% min (40% for SC/ST)</td>
+              <td>60 per branch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANT DATES -->
+  <!-- <section class="dates-section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Timeline</span>
+        <h2 class="section-title" style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:var(--navy);">Important <em>Dates</em></h2>
+      </div>
+      <div class="dates-grid">
+        <div class="date-card">
+          <div class="date">15 April 2026</div>
+          <h4>Application Start</h4>
+          <p>Online application portal opens for all programs</p>
+        </div>
+        <div class="date-card">
+          <div class="date">30 June 2026</div>
+          <h4>Application Deadline</h4>
+          <p>Last date to submit online application</p>
+        </div>
+        <div class="date-card">
+          <div class="date">10 July 2026</div>
+          <h4>Merit List Release</h4>
+          <p>First merit list published on college website</p>
+        </div>
+        <div class="date-card">
+          <div class="date">20 July 2026</div>
+          <h4>Counseling Starts</h4>
+          <p>Counseling and document verification begins</p>
+        </div>
+        <div class="date-card">
+          <div class="date">01 August 2026</div>
+          <h4>Session Commences</h4>
+          <p>Academic session begins for all programs</p>
+        </div>
+        <div class="date-card">
+          <div class="date">15 August 2026</div>
+          <h4>Late Admission</h4>
+          <p>Last date for admission (with late fee)</p>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- APPLICATION FORM -->
+  <section class="form-section reveal" id="apply">
+    <div class="container">
+      <div class="form-wrapper">
+        <h2>Apply <em>Now</em></h2>
+        <p class="subtitle">Fill the form below to start your admission process. Our team will contact you shortly.</p>
+        <form id="admissionForm" onsubmit="return handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="required">*</span></label>
+              <input type="text" id="fullName" placeholder="Enter your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" placeholder="Enter your phone number" required />
+            </div>
+            <div class="form-group">
+              <label for="course">Program <span class="required">*</span></label>
+              <select id="course" required>
+                <option value="">Select Program</option>
+                <option value="bca">BCA - Computer Applications</option>
+                <option value="bba">BBA - Management Studies</option>
+                <option value="bcom">B.Com - Commerce</option>
+                <option value="ba">B.A. - Arts & Humanities</option>
+                <option value="bpharma">B.Pharma - Pharmacy</option>
+                <option value="dpharma">D.Pharma - Pharmacy</option>
+                <option value="bed">B.Ed. - Education</option>
+                <option value="deled">D.El.Ed. - Elementary Education</option>
+                <option value="polytechnic-cc">Polytechnic - Computer Engineering (CC)</option>
+                <option value="polytechnic-ec">Polytechnic - Electronics & Communication (EC)</option>
+                <option value="polytechnic-ee">Polytechnic - Electrical Engineering (EE)</option>
+                <option value="polytechnic-ce">Polytechnic - Civil Engineering (CE)</option>
+                <option value="polytechnic-me">Polytechnic - Mechanical Engineering (ME-P)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" required />
+          </div>
+          <div class="form-group">
+            <label for="qualification">Highest Qualification <span class="required">*</span></label>
+            <input type="text" id="qualification" placeholder="e.g., 10+2, Graduation" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Any additional information or query..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Submit Application</button>
+        </form>
+        <div id="formMessage" style="margin-top: 1rem; font-size: 0.9rem; display: none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (will be replaced by common.js) -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-name" style="font-family:'Playfair Display',serif; font-size:1rem; color:#fff;">Dreams Group of Colleges</div>
+          <p>Affiliated to: Dr. APJ Abdul Kalam Technical University, Lucknow | BTE Lucknow</p>
+          <div class="footer-contact">
+            📍 Janta Road, Saharanpur, Uttar Pradesh<br>
+            📞 +91-712-254-8900 &nbsp;|&nbsp; ✉ admissions@dreamscollege.in
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Academics</h5>
+          <ul>
+            <li><a href="academics.html">Programmes</a></li>
+            <li><a href="academics.html">Departments</a></li>
+            <li><a href="syllabus.html">Syllabus</a></li>
+            <li><a href="research.html">Research</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="admissions.html">Admissions 2026-27</a></li>
+            <li><a href="campus.html">Campus Life</a></li>
+            <li><a href="about.html">About College</a></li>
+            <li><a href="contact.html">Enquiry Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institution</h5>
+          <ul>
+            <li><a href="about.html">Vision & Mission</a></li>
+            <li><a href="about.html">Leadership</a></li>
+            <li><a href="research.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Dreams Group of Colleges. All Rights Reserved.</span>
+        <div class="footer-accred">
+          <span class="accred-badge">AKTU Affiliated</span>
+          <span class="accred-badge">Saharanpur</span>
+          <span class="accred-badge">Uttar Pradesh</span>
+          <span class="accred-badge">Powered by <a href="https://www.merashikshasahayak.com/">MSS</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── FORM HANDLER ───
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('admissionForm');
+      const message = document.getElementById('formMessage');
+      
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Simple validation
+      if (!data.fullName || !data.email || !data.phone || !data.course || !data.dob || !data.qualification) {
+        message.style.display = 'block';
+        message.style.color = '#dc3545';
+        message.textContent = '⚠️ Please fill all required fields.';
+        return;
+      }
+      
+      // Show success message
+      message.style.display = 'block';
+      message.style.color = '#28a745';
+      message.innerHTML = '✅ Thank you for applying! We will contact you shortly.';
+      
+      // Reset form
+      form.reset();
+      
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        message.style.display = 'none';
+      }, 5000);
+      
+      // You can add AJAX form submission here
+      console.log('Form Data:', data);
+    }
+
+    // ─── SCROLL REVEAL ───
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+  <script src="common.js?v=20260628-1"></script>
+</body>
+</html>
