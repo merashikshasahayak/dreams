@@ -1361,8 +1361,189 @@ nav ul li.dropdown > a::after {
     </div>
   </footer>
 
+  <!-- POPUP OVERLAY -->
+  <div id="admissionPopup" class="popup-overlay" style="display:none;">
+    <div class="popup-box">
+      <button class="popup-close" id="closePopupBtn">&times;</button>
+      <h3 class="popup-title">🎓 Admission Inquiry</h3>
+      <p class="popup-sub">Fill the form below and our team will get back to you shortly.</p>
+      <form action="https://formsubmit.co/sdct.ed@gmail.com" method="POST" class="popup-form">
+        <!-- honeypot -->
+        <input type="text" name="_honey" style="display:none;">
+        <!-- disable captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        <!-- redirect after submit -->
+        <input type="hidden" name="_next" value="https://your-website.com/thanks.html">
+
+        <div class="form-group">
+          <label for="popupName">Full Name</label>
+          <input type="text" id="popupName" name="name" placeholder="e.g. Rahul Sharma" required>
+        </div>
+        <div class="form-group">
+          <label for="popupMobile">Mobile Number</label>
+          <input type="tel" id="popupMobile" name="mobile" placeholder="9876543210" required>
+        </div>
+        <div class="form-group">
+          <label for="popupCourse">Course Interested In</label>
+          <select id="popupCourse" name="course" required>
+            <option value="">-- Select Course --</option>
+            <option value="B.C.A.">B.C.A. (Computer Applications)</option>
+            <option value="B.B.A.">B.B.A. (Management)</option>
+            <option value="B.A.">B.A. (Commerce & Humanities)</option>
+            <option value="B.Sc.">B.Sc. (Science & Research)</option>
+            <option value="D. Pharma">D. Pharma (Diploma in Pharmacy)</option>
+            <option value="B. Pharma">B. Pharma (Bachelor of Pharmacy)</option>
+            <option value="B.Ed.">B.Ed. (Teacher Education)</option>
+            <option value="D.El.Ed.">D.El.Ed. (Teacher Education)</option>
+            <option value="Civil Diploma">Civil Engineering Diploma</option>
+            <option value="CSE Diploma">Computer Science Diploma</option>
+            <option value="Mechanical Diploma">Mechanical Engineering Diploma</option>
+            <option value="Electrical Diploma">Electrical Engineering Diploma</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="popupDescription">Description (optional)</label>
+          <textarea id="popupDescription" name="message" rows="2" placeholder="Any additional details..."></textarea>
+        </div>
+        <button type="submit" class="popup-submit-btn">Submit Inquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <style>
+    /* popup overlay styles */
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(10, 20, 40, 0.75);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: popupFadeIn 0.3s ease;
+    }
+
+    .popup-box {
+      background: var(--white);
+      max-width: 480px;
+      width: 92%;
+      padding: 2.2rem 2rem 2.2rem;
+      border-radius: 8px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      position: relative;
+      animation: popupSlide 0.3s ease;
+    }
+
+    @keyframes popupSlide {
+      0% { transform: translateY(-30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes popupFadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 0.6rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 2rem;
+      line-height: 1;
+      color: #555;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .popup-close:hover { color: #000; }
+
+    .popup-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .popup-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .popup-form .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .popup-form label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .popup-form input,
+    .popup-form select,
+    .popup-form textarea {
+      width: 100%;
+      padding: 0.65rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      background: var(--cream);
+      transition: border 0.2s;
+    }
+
+    .popup-form input:focus,
+    .popup-form select:focus,
+    .popup-form textarea:focus {
+      border-color: var(--gold);
+      outline: none;
+      background: var(--white);
+    }
+
+    .popup-submit-btn {
+      width: 100%;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.85rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.2rem;
+    }
+    .popup-submit-btn:hover { background: var(--gold2); transform: scale(1.01); }
+  </style>
+
   <script>
-    // Scroll reveal
+    // show popup automatically on page load
+    window.addEventListener('load', function() {
+      const popup = document.getElementById('admissionPopup');
+      popup.style.display = 'flex';
+    });
+
+    // close popup
+    document.getElementById('closePopupBtn').addEventListener('click', function() {
+      document.getElementById('admissionPopup').style.display = 'none';
+    });
+
+    // close if overlay clicked (outside box)
+    document.getElementById('admissionPopup').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+
+    // Scroll reveal (existing)
     const reveals = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -1371,7 +1552,7 @@ nav ul li.dropdown > a::after {
     }, { threshold: 0.08 });
     reveals.forEach(el => io.observe(el));
 
-    // Animated counters
+    // Animated counters (existing)
     function animateCount(el, target, suffix) {
       let start = 0;
       const dur = 1800;
